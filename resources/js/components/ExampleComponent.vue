@@ -2,8 +2,11 @@
 
   <div >
     
-    <div  v-if="info" style="position: absolute; height: 90%; width: 30vw; z-index: 1000;" class="bg-light">
-      <info-component></info-component>
+    <div  v-if="info" style="position: absolute; height: 90%; max-width: 576px; z-index: 1000; opacity: 0.95;" class="bg-light p-4">
+      <div style="d-flex justify-content-end" v-on:click="show">
+        <img src="/img/illu/close.svg" alt="" style="height : 20px">
+      </div>
+      <info-component ></info-component>
     </div>
     <l-map
       v-if="showMap"
@@ -24,7 +27,7 @@
       
       
 
-      <l-marker :lat-lng="withPopup" v-on:click="show">
+      <l-marker :lat-lng="withPopup" v-on:click="show" >
         
          <l-icon
           :icon-size="dynamicSize"
@@ -32,7 +35,7 @@
           
         >
           
-          <img src="/img/illu/school.svg">
+          <img src="/img/illu/school.svg"  >
           <div class=" text-center">
             
           </div>
@@ -83,9 +86,9 @@ export default {
   data() {
     return {
       info: false, 
-      
+      hover: 'fill :#2A3B5C',
       iconSize: 40,
-      
+      isActive: true,
       zoom: 13,
       center: latLng(40.74881093824601, -73.98398554515835),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -121,11 +124,15 @@ export default {
     showLongText() {
       this.showParagraph = !this.showParagraph;
     },
+    
     show: function () {
+      this.isActive = !this.isActive;
         if (this.info == false) {
           this.info = true;
+          this.hover = 'fill: #D9B391';
         } else {
           this.info = false;
+          this.hover = 'fill: #2A3B5C';
         }
 
       },

@@ -426,9 +426,11 @@
 
         .bg-primary {
             background-color: #D9B391 !important;
+            
         }
         .text-primary {
             color: #D9B391 !important;
+            
         }
 
         .bg-secondary {
@@ -436,6 +438,7 @@
         }
         .text-secondary {
             color: #2A3B5C !important;
+
         }
 
         .bg-info {
@@ -444,6 +447,14 @@
         .text-info {
             color: #2A3B5C !important;
 
+        }
+
+        .red {
+            fill: #2A3B5C !important;
+        }
+
+        .blue {
+            fill: #D9B391 !important;
         }
         
 
@@ -476,15 +487,18 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 noto">
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home </a>
                     </li>
+                    
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('map') ? 'active' : '' }}" href="/map">Map</a>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="#">Data&nbsp;++</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="/map">Map</a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Comparator</a>
                     </li>
