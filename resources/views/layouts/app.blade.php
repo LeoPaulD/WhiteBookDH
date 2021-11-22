@@ -17,6 +17,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Noto+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
         rel="stylesheet">
+       
+        
     <!-- Styles -->
     <style>
         /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -496,7 +498,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Data&nbsp;++</a>
+                        <a class="nav-link {{ Request::is('data++') ? 'active' : '' }}" href="/data++">Data&nbsp;++</a>
                     </li>
 
                     <li class="nav-item">
@@ -516,7 +518,9 @@
 
 
     
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+    <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 
 </body>

@@ -4,8 +4,8 @@
 @show
 @section('content')
 <div style="height: 70px"></div>
-<div id="app">
+<div id="app" class="container">
     
-    <map-component></map-component>
+    <data-component></data-component>
  </div>
  @endsection

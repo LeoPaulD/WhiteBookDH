@@ -2,7 +2,7 @@
 
   <div >
     
-    <div  v-if="info" style="position: absolute; height: 90%; max-width: 576px; z-index: 1000; opacity: 0.95;" class="bg-light p-4">
+    <div  v-if="info" style="position: absolute; height: 90%; max-width: 576px; z-index: 1000; opacity: 0.95; overflow: scroll;" class="bg-light p-4">
       <div style="d-flex justify-content-end" v-on:click="show">
         <img src="/img/illu/close.svg" alt="" style="height : 20px">
       </div>
@@ -63,7 +63,7 @@
 
 
 import { latLng } from 'leaflet';
-import { LMap, LTileLayer, LControl,LMarker,LCircleMarker,LTooltip,LFeatureGroup, LPopup, LControlLayers, LControlZoom, LIcon, LWMSTileLayer} from "vue2-leaflet";
+import { LMap, LTileLayer, LControl,LMarker,LCircleMarker,LTooltip,LFeatureGroup, LPopup, LControlLayers, LControlZoom, LIcon} from "vue2-leaflet";
 import InfoComponent from './InfoComponent.vue';
 
 export default {

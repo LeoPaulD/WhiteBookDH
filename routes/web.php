@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::get('/map', function () {
     return view('map.index');
 });
+
+Route::get('/data++', function () {
+    return view('data.index');
+});
