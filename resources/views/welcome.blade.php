@@ -19,7 +19,8 @@
                     </p>
                     <a href="/map"
                         class="btn ronded-lg col-xl-6 col-lg-10 col-md-12 d-flex justify-content-arround  shadow-sm zoom">
-                        <img class="mr-2" src="img/illu/cadena.svg" alt="" style="height: 31px">
+                        
+                        <svg class="mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='#2A3B5C' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
                         <span class="ml-2 m-1">See the masters</span>
                     </a>
                 </div>
