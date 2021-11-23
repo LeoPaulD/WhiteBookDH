@@ -10,7 +10,7 @@
     
     
   <div class="d-flex flex-wrap justify-content-between"  >
-        <geo-chart class="col-lg-6" :legend="true" :data="[['United States', 44], ['Canada', 23], ['India', 22], ['United Kingdom', 30]]"  xtitle="Nombre de master par pays" :download="true" :colors="['#D9B391']"></geo-chart>
+        <geo-chart class="col-lg-6" :legend="true" :data="[['United States', 44], ['Canada', 23], ['India', 50], ['United Kingdom', 30]]"  xtitle="Nombre de master par pays" :download="true" :colors="['#D9B391']"></geo-chart>
         
         
         <line-chart class="col-lg-6"  :download="true" :data="[[new Date(), 5], ['2017-01-01 00:00:00 UTC', 7]]"></line-chart>

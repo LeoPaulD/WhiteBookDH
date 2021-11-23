@@ -57335,7 +57335,7 @@ var render = function () {
             data: [
               ["United States", 44],
               ["Canada", 23],
-              ["India", 22],
+              ["India", 50],
               ["United Kingdom", 30],
             ],
             xtitle: "Nombre de master par pays",
