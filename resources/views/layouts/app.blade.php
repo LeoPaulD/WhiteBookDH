@@ -458,6 +458,17 @@
         .blue {
             fill: #D9B391 !important;
         }
+
+        .leg {
+            width: 20px;
+            height: 10px;
+            
+
+        }
+        
+        
+
+        
         
 
         @media only screen and (min-width : 768px) {

@@ -26,3 +26,4 @@ Route::get('/map', function () {
 Route::get('/data++', function () {
     return view('data.index');
 });
+

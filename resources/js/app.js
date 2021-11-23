@@ -34,6 +34,8 @@ Vue.component('data-component', require('./components/DataComponent.vue').defaul
  import Highcharts from 'highcharts'
  
  Vue.use(Chartkick.use(Highcharts))
+
+
  
  
 
