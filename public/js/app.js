@@ -2149,11 +2149,26 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Example',
+  props: {
+    id: String
+  },
   components: {},
   data: function data() {
-    return {};
+    return {
+      infos: []
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('../api/infomaster/' + this.id).then(function (response) {
+      return _this.infos = response.data;
+    });
   },
   computed: {},
   methods: {}
@@ -2334,6 +2349,8 @@ __webpack_require__.r(__webpack_exports__);
       iconSize: 40,
       isActive: true,
       isMobile: false,
+      infoid: '',
+      master: [],
       zoom: 2.5,
       center: (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(20, 10),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -2357,7 +2374,7 @@ __webpack_require__.r(__webpack_exports__);
     window.addEventListener('resize', this.onResize, {
       passive: true
     });
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('../api/master').then(function (response) {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().get('../api/masters').then(function (response) {
       return _this.localisations = response.data;
     });
   },
@@ -2375,6 +2392,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     centerUpdate: function centerUpdate(center) {
       this.currentCenter = center;
+    },
+    clickMarker: function clickMarker(id) {
+      this.infoid = id;
     },
     show: function show() {
       this.isActive = !this.isActive;
@@ -57500,79 +57520,83 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c(
-      "div",
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _c("p", { staticClass: "noto" }, [
-          _vm._v(
-            " The M.A. in Digital Humanities program cultivates both the practical skills and the humanistic knowledge needed to work on digital humanities-related projects in universities, libraries, museums, and non-profit cultural organizations."
-          ),
-        ]),
-        _vm._v(" "),
-        _c("div"),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("line-chart", {
-          attrs: {
-            data: [
-              [new Date(), 5],
-              ["2017-01-01 00:00:00 UTC", 7],
-            ],
-          },
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("column-chart", {
-          attrs: {
-            data: [
-              ["Sun", 32],
-              ["Mon", 46],
-              ["Tue", 28],
-            ],
-          },
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("area-chart", {
-          attrs: { data: { "2017-01-01": 11, "2017-01-02": 6 } },
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("geo-chart", {
-          attrs: {
-            data: [
-              ["United States", 44],
-              ["Germany", 23],
-              ["Brazil", 22],
-            ],
-          },
-        }),
-        _vm._v(" "),
-        _c("br"),
-        _vm._v(" "),
-        _c("pie-chart", { attrs: { data: { Blueberry: 44, Strawberry: 23 } } }),
-      ],
-      1
-    ),
-  ])
+  return _c(
+    "div",
+    _vm._l(_vm.infos, function (info) {
+      return _c("div", [
+        _c(
+          "div",
+          [
+            _c("h1", { staticClass: "baskerville text-center m-2" }, [
+              _c("b", [_vm._v(_vm._s(info.Nom_formation))]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "noto m-2" }, [
+              _vm._v(" " + _vm._s(info.Description)),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "noto m-2" }, [
+              _vm._v(" " + _vm._s(info.Departement)),
+            ]),
+            _vm._v(" "),
+            _c("div"),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("pie-chart", {
+              attrs: {
+                data: {
+                  Outils: info.Outils,
+                  Recherche: info.Recherche,
+                  Corpus: info.Corpus,
+                  Culture: info.Culture,
+                  Service: info.Service,
+                  Data: info.Data,
+                  Methodes: info.Methodes,
+                },
+              },
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("column-chart", {
+              attrs: {
+                data: [
+                  ["Sun", 32],
+                  ["Mon", 46],
+                  ["Tue", 28],
+                ],
+              },
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("area-chart", {
+              attrs: { data: { "2017-01-01": 11, "2017-01-02": 6 } },
+            }),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v(" "),
+            _c("geo-chart", {
+              attrs: {
+                data: [
+                  ["United States", 44],
+                  ["Germany", 23],
+                  ["Brazil", 22],
+                ],
+              },
+            }),
+            _vm._v(" "),
+            _c("br"),
+          ],
+          1
+        ),
+      ])
+    }),
+    0
+  )
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("h1", { staticClass: "baskerville text-center m-2" }, [
-      _c("b", [_vm._v("Master in Digital Humanities")]),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -57620,7 +57644,7 @@ var render = function () {
                 }),
               ]),
               _vm._v(" "),
-              _c("info-component"),
+              _c("info-component", { attrs: { id: _vm.infoid } }),
             ],
             1
           )
@@ -57659,18 +57683,25 @@ var render = function () {
                       {
                         attrs: {
                           "lat-lng": [
-                            data.localisation.split(",")[0],
-                            data.localisation.split(",")[1],
+                            data.Localisation.split(",")[0],
+                            data.Localisation.split(",")[1],
                           ],
                         },
-                        on: { click: _vm.show },
+                        on: {
+                          click: [
+                            _vm.show,
+                            function ($event) {
+                              return _vm.clickMarker(data.id)
+                            },
+                          ],
+                        },
                       },
                       [
                         _c(
                           "l-icon",
                           { attrs: { "icon-size": _vm.dynamicSize } },
                           [
-                            data.pays == "Canada"
+                            data.Pays == "Canada"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57700,7 +57731,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "United States"
+                            data.Pays == "United States"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57730,7 +57761,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "United Kingdom"
+                            data.Pays == "United Kingdom"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57760,7 +57791,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "Ireland"
+                            data.Pays == "Ireland"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57790,7 +57821,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "Australia"
+                            data.Pays == "Australia"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57820,7 +57851,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "India"
+                            data.Pays == "India"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57850,7 +57881,7 @@ var render = function () {
                                 ])
                               : _vm._e(),
                             _vm._v(" "),
-                            data.pays == "New Zealand"
+                            data.Pays == "New Zealand"
                               ? _c("div", [
                                   _c(
                                     "svg",
@@ -57888,7 +57919,7 @@ var render = function () {
                           _c("div", [
                             _vm._v(
                               "\n          " +
-                                _vm._s(data.nom_formation) +
+                                _vm._s(data.Nom_formation) +
                                 "\n          \n        "
                             ),
                           ]),

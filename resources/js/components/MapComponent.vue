@@ -10,7 +10,7 @@
       
         
        
-      <info-component ></info-component>
+      <info-component :id="infoid"></info-component>
     </div>
     <l-map
       v-if="showMap"
@@ -31,33 +31,33 @@
       
       
       <div v-for="data in localisations">
-      <l-marker :lat-lng="[data.localisation.split(',')[0], data.localisation.split(',')[1]]" v-on:click="show" >
+      <l-marker :lat-lng="[data.Localisation.split(',')[0], data.Localisation.split(',')[1]]" v-on:click="show" @click='clickMarker(data.id)' >
         
          <l-icon
           :icon-size="dynamicSize"
           
           
         >
-          <div v-if="data.pays == 'Canada'">
+          <div v-if="data.Pays == 'Canada'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='red' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
-          <div v-if="data.pays == 'United States'">
+          <div v-if="data.Pays == 'United States'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='blue' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
-          <div v-if="data.pays == 'United Kingdom'">
+          <div v-if="data.Pays == 'United Kingdom'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='purple' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
-          <div v-if="data.pays == 'Ireland'">
+          <div v-if="data.Pays == 'Ireland'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='green' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
-          <div v-if="data.pays == 'Australia'">
+          <div v-if="data.Pays == 'Australia'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='brown' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
-          <div v-if="data.pays == 'India'">
+          <div v-if="data.Pays == 'India'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='pink' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
           
-          <div v-if="data.pays == 'New Zealand'">
+          <div v-if="data.Pays == 'New Zealand'">
              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='orange' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
           </div>
 
@@ -72,7 +72,7 @@
          
           
           <div >
-            {{data.nom_formation}}
+            {{data.Nom_formation}}
             
           </div>
         </l-tooltip>
@@ -150,6 +150,8 @@ export default {
       iconSize: 40,
       isActive: true,
       isMobile: false,
+      infoid: '',
+      master: [],
       zoom: 2.5,
       center: latLng(20, 10),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
@@ -174,7 +176,7 @@ export default {
         passive: true
       })
     axios
-        .get('../api/master')
+        .get('../api/masters')
         .then(response => (this.localisations = response.data))
     
   },
@@ -196,6 +198,10 @@ export default {
     },
     centerUpdate(center) {
       this.currentCenter = center;
+    },
+
+    clickMarker(id) {
+        this.infoid = id;
     },
     
     

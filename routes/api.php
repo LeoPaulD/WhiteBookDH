@@ -18,5 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('master/{query?}', 'App\Http\Controllers\Api\MasterApi@index');
+Route::get('masters', 'App\Http\Controllers\Api\MastersApi@index');
+Route::get('infomaster/{query?}', 'App\Http\Controllers\Api\InfoMasterApi@index');
 
