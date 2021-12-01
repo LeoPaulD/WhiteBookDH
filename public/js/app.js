@@ -2119,6 +2119,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vuewordcloud__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuewordcloud */ "./node_modules/vuewordcloud/index.js");
+/* harmony import */ var vuewordcloud__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vuewordcloud__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var vue_radar__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-radar */ "./node_modules/vue-radar/Radar.vue");
+var _components;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 //
 //
 //
@@ -2152,15 +2159,115 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Example',
   props: {
     id: String
   },
-  components: {},
+  components: (_components = {}, _defineProperty(_components, (vuewordcloud__WEBPACK_IMPORTED_MODULE_0___default().name), (vuewordcloud__WEBPACK_IMPORTED_MODULE_0___default())), _defineProperty(_components, 'v-radar', vue_radar__WEBPACK_IMPORTED_MODULE_1__["default"]), _components),
   data: function data() {
     return {
-      infos: []
+      infos: [],
+      radar: {
+        // same unit than above (diamètre = 900), keep the radius < (viewbox / 2)
+        structure: {
+          external: {
+            // external stroke of the structure's polygon
+            strokeColor: 'rgba(0, 0, 0, 1)',
+            // color (any css format is usable (hexa, rgb, rgba...))
+            strokeWidth: '4' // pixel unit
+
+          },
+          internals: {
+            // internals stroke of the structure's polygon (one every 10%)
+            strokeColor: 'rgba(0, 0, 0, .3)',
+            // color (any css format is usable (hexa, rgb, rgba...))
+            strokeWidth: '1' // pixel unit
+
+          },
+          average: {
+            // average polygon (placed at 50%)
+            strokeColor: 'rgba(0, 0, 0, 1)',
+            // stroke color (any css format is usable (hexa, rgb, rgba...))
+            strokeWidth: '2',
+            // pixel unit
+            fillColor: 'rgba(0, 0, 0, .5)' // polygon color (any css format is usable (hexa, rgb, rgba...))
+
+          }
+        },
+        lines: {
+          // lines from center to summits
+          strokeColor: 'rgba(0, 0, 0, .3)',
+          // color (any css format is usable (hexa, rgb, rgba...))
+          strokeWidth: '1' // pixel unit
+
+        }
+      },
+      scale: {// scales of corresponding statistic
+      },
+      stats: [{
+        name: 'Recherche',
+        // string
+        value: 12,
+        // int
+        shortName: 'Recherche' // The two first letters are used to be display next to their corresponding summits
+
+      }, {
+        name: 'Corpus',
+        value: 77,
+        shortName: 'Corpus'
+      }, {
+        name: 'Méthodes',
+        value: 44,
+        shortName: 'Méthodes'
+      }, {
+        name: 'Data',
+        value: 44,
+        shortName: 'Data'
+      }],
+      polycolor: 'rgba(250, 100, 50, .5)' // color (any css format is usable (hexa, rgb, rgba...))
+
     };
   },
   mounted: function mounted() {
@@ -57183,6 +57290,387 @@ if (typeof window !== "undefined" && window.Vue) {
 
 /***/ }),
 
+/***/ "./node_modules/vue-radar/Radar.vue":
+/*!******************************************!*\
+  !*** ./node_modules/vue-radar/Radar.vue ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Radar.vue?vue&type=template&id=25a9cdc2& */ "./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2&");
+/* harmony import */ var _Radar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Radar.vue?vue&type=script&lang=js& */ "./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js&");
+/* harmony import */ var _vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Radar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__.render,
+  _Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "node_modules/vue-radar/Radar.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+    name: 'radar',
+    props: {
+        radar: {
+            type: Object,
+            required: false,
+        },
+        stats: Array,
+        polycolor: String,
+        scale: Object,
+    },
+    data() {
+        return {
+            transparent: 'rgba(0, 0, 0, 0)'
+        }
+    },
+    methods: {
+        buildStructure(percentage) {
+            let points = '';
+
+            for (let count = 0; count < this.statsLength; count++) {
+                let newAngle = calculateNewAngle(count, this.baseAngle);
+                let angleMultiplier = percentage * this.radius;
+                let x = calculateXCoordinate(newAngle, angleMultiplier, this.originPoint);
+                let y = calculateYCoordinate(newAngle, angleMultiplier, this.originPoint);
+                points += Math.round(x) + ',' + Math.round(y) + ' ';
+            }
+
+            return points;
+        },
+        xLineCoordinate(index) {
+            let newAngle = calculateNewAngle((index - 1), this.baseAngle);
+
+            return calculateXCoordinate(newAngle, this.radius, this.originPoint);
+        },
+        yLineCoordinate(index) {
+            let newAngle = calculateNewAngle((index - 1), this.baseAngle);
+
+            return calculateYCoordinate(newAngle, this.radius, this.originPoint);
+        },
+        xTextCoordinate(index) {
+            let newAngle = calculateNewAngle((index - 1), this.baseAngle);
+
+            return calculateXCoordinate(newAngle, parseFloat(this.radius) + 60, this.originPoint) - 20;
+        },
+        yTextCoordinate(index) {
+            let newAngle = calculateNewAngle((index - 1), this.baseAngle);
+
+            return calculateYCoordinate(newAngle, parseFloat(this.radius) + 60, this.originPoint) + 20;
+        },
+    },
+    computed: {
+        svgSize() {
+            return setProperty(this.radar, 'size', '400') + 'px';
+        },
+        viewbox() {
+            return setProperty(this.radar, 'viewbox', '1000');
+        },
+        svgViewBox() {
+            return '0 0 ' + this.viewbox + ' ' + this.viewbox;
+        },
+        statsLength() {
+            return objectLength(this.stats);
+        },
+        baseAngle() {
+            return calculateBaseAngle(this.statsLength);
+        },
+        radius() {
+            return setProperty(this.radar, 'radius', '350');
+        },
+        originPoint() {
+            return this.viewbox / 2;
+        },
+        externalStrokeColor() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'external')) {
+                        return setProperty(this.radar.structure.external, 'strokeColor', '#222222');
+                    }
+                }
+            }
+
+            return '#222222';
+        },
+        externalStrokeWidth() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'external')) {
+                        return setProperty(this.radar.structure.external, 'strokeWidth', '4') + 'px';
+                    }
+                }
+            }
+
+            return '4px';
+        },
+        internalsStrokeColor() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'internals')) {
+                        return setProperty(this.radar.structure.internals, 'strokeColor', '#777777');
+                    }
+                }
+            }
+
+            return '#777777';
+        },
+        internalsStrokeWidth() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'internals')) {
+                        return setProperty(this.radar.structure.internals, 'strokeWidth', '2') + 'px';
+                    }
+                }
+            }
+
+            return '2px';
+        },
+        linesStrokeColor() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'lines')) {
+                    return setProperty(this.radar.lines, 'strokeColor', '#000000');
+                }
+            }
+
+            return '#000';
+        },
+        linesStrokeWidth() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'lines')) {
+                    return setProperty(this.radar.lines, 'strokeWidth', '2') + 'px';
+                }
+            }
+
+            return '2px';
+        },
+        averageStrokeColor() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'average')) {
+                        return setProperty(this.radar.structure.average, 'strokeColor', '#777777');
+                    }
+                }
+            }
+
+            return '#777';
+        },
+        averageStrokeWidth() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'average')) {
+                        return setProperty(this.radar.structure.average, 'strokeWidth', '2') + 'px';
+                    }
+                }
+            }
+
+            return '2px';
+        },
+        averageFillColor() {
+            if (objectIsDefined(this.radar)) {
+                if (objectHasProperty(this.radar, 'structure')) {
+                    if (objectHasProperty(this.radar.structure, 'average')) {
+                        return setProperty(this.radar.structure.average, 'fillColor', 'rgba(0, 0, 0, .2)');
+                    }
+                }
+            }
+
+            return 'rgba(0, 0, 0, .2)';
+        },
+        buildPoints() {
+            let points = '';
+            let divider = 1;
+
+            for (let i = 0; i < this.statsLength; i++) {
+                let name = this.stats[i].name;
+                let value = this.stats[i].value;
+                if (this.scale.hasOwnProperty(removeAccents(name.toLowerCase()))) {
+                    divider = this.scale[removeAccents(name.toLowerCase())];
+                } else {
+                    divider = 100;
+                }
+                let newAngle = calculateNewAngle(i, this.baseAngle);
+                let angleMultiplier = value / divider * this.radius;
+                let x = calculateXCoordinate(newAngle, angleMultiplier, this.originPoint);
+                let y = calculateYCoordinate(newAngle, angleMultiplier, this.originPoint);
+                points += Math.round(x) + ',' + Math.round(y) + ' ';
+            }
+
+            return points;
+        },
+        shortNames() {
+            let shortNames = [0];
+            for (let i = 0; i < this.statsLength; i++) {
+                let stat = this.stats[i];
+                if (objectHasProperty(stat, 'shortName')) {
+                    shortNames.push(setProperty(stat, 'shortName', stat.name).slice(0, 2));
+                } else {
+                    shortNames.push(stat.name.slice(0, 2));
+                }
+            }
+
+            return shortNames;
+        },
+        polyFillColor() {
+            if (this.polycolor === '') {
+                return 'rgba(200, 50, 150, .7)';
+            } else {
+                return this.polycolor;
+            }
+        }
+    }
+});
+
+function objectIsDefined(object) {
+    return (typeof object !== 'undefined');
+}
+
+function objectHasProperty(object, property) {
+    if (typeof object !== 'undefined') {
+        if (object.hasOwnProperty(property)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+function setProperty(object, propertyToTest, defaultValue) {
+    if (objectHasProperty(object, propertyToTest)) {
+        if (typeof object[propertyToTest] !== 'undefined') {
+            return object[propertyToTest];
+        }
+    }
+
+    return defaultValue;
+}
+
+// @return the obj length
+function objectLength(obj) {
+    let i;
+    let length = 0;
+    for (i in obj) {
+        length++;
+    }
+
+    return length;
+}
+
+// @return the angle of one part based on total
+function calculateBaseAngle(total) {
+    return Math.PI * 2 / total;
+}
+
+// @return the angle of the index
+function calculateNewAngle(index, baseAngle) {
+    return (Math.PI / 2) + Math.PI + (baseAngle * index);
+}
+
+function calculateXCoordinate(angle, angleMultiplier, origin) {
+    return origin + Math.cos(angle) * angleMultiplier;
+}
+
+function calculateYCoordinate(angle, angleMultiplier, origin) {
+    return (origin + Math.sin(angle) * angleMultiplier);
+}
+
+function removeAccents(str) {
+    let accents = 'ÀÁÂÃÄÅàáâãäåÒÓÔÕÕÖØòóôõöøÈÉÊËèéêëðÇçÐÌÍÎÏìíîïÙÚÛÜùúûüÑñŠšŸÿýŽž';
+    let accentsOut = "AAAAAAaaaaaaOOOOOOOooooooEEEEeeeeeCcDIIIIiiiiUUUUuuuuNnSsYyyZz";
+    str = str.split('');
+    let strLen = str.length;
+    let i, x;
+    for (i = 0; i < strLen; i++) {
+        if ((x = accents.indexOf(str[i])) !== -1) {
+            str[i] = accentsOut[x];
+        }
+    }
+
+    return str.join('');
+}
+
+
+/***/ }),
+
 /***/ "./resources/js/components/DataComponent.vue":
 /*!***************************************************!*\
   !*** ./resources/js/components/DataComponent.vue ***!
@@ -57348,6 +57836,39 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js&":
+/*!*******************************************************************!*\
+  !*** ./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_lib_index_js_vue_loader_options_Radar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/index.js??vue-loader-options!./Radar.vue?vue&type=script&lang=js& */ "./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_vue_loader_lib_index_js_vue_loader_options_Radar_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2&":
+/*!*************************************************************************!*\
+  !*** ./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2& ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _vue_loader_lib_loaders_templateLoader_js_vue_loader_options_vue_loader_lib_index_js_vue_loader_options_Radar_vue_vue_type_template_id_25a9cdc2___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../vue-loader/lib/index.js??vue-loader-options!./Radar.vue?vue&type=template&id=25a9cdc2& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2&");
+
+
+/***/ }),
+
 /***/ "./resources/js/components/DataComponent.vue?vue&type=template&id=65d612d0&":
 /*!**********************************************************************************!*\
   !*** ./resources/js/components/DataComponent.vue?vue&type=template&id=65d612d0& ***!
@@ -57395,6 +57916,107 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapComponent_vue_vue_type_template_id_2f302b28___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MapComponent_vue_vue_type_template_id_2f302b28___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./MapComponent.vue?vue&type=template&id=2f302b28& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/MapComponent.vue?vue&type=template&id=2f302b28&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2&":
+/*!****************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./node_modules/vue-radar/Radar.vue?vue&type=template&id=25a9cdc2& ***!
+  \****************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "v-radar" }, [
+    _c(
+      "svg",
+      {
+        attrs: {
+          width: _vm.svgSize,
+          height: _vm.svgSize,
+          viewBox: _vm.svgViewBox,
+        },
+      },
+      [
+        _c("polygon", {
+          attrs: {
+            points: _vm.buildStructure(1),
+            fill: _vm.transparent,
+            stroke: _vm.externalStrokeColor,
+            "stroke-width": _vm.externalStrokeWidth,
+          },
+        }),
+        _vm._v(" "),
+        _vm._l(9, function (n) {
+          return _c("polygon", {
+            attrs: {
+              points: _vm.buildStructure(n / 10),
+              fill: _vm.transparent,
+              stroke: _vm.internalsStrokeColor,
+              "stroke-width": _vm.internalsStrokeWidth,
+            },
+          })
+        }),
+        _vm._v(" "),
+        _c("polygon", {
+          attrs: {
+            points: _vm.buildStructure(0.5),
+            fill: _vm.averageFillColor,
+            stroke: _vm.averageStrokeColor,
+            "stroke-width": _vm.averageStrokeWidth,
+          },
+        }),
+        _vm._v(" "),
+        _c("polygon", {
+          attrs: { points: _vm.buildPoints, fill: _vm.polyFillColor },
+        }),
+        _vm._v(" "),
+        _vm._l(_vm.statsLength, function (index) {
+          return _c("line", {
+            attrs: {
+              x1: _vm.originPoint,
+              y1: _vm.originPoint,
+              x2: _vm.xLineCoordinate(index),
+              y2: _vm.yLineCoordinate(index),
+              stroke: _vm.linesStrokeColor,
+              "stroke-width": _vm.linesStrokeWidth,
+            },
+          })
+        }),
+        _vm._v(" "),
+        _c(
+          "g",
+          { staticClass: "label" },
+          _vm._l(_vm.statsLength, function (index) {
+            return _c("text", {
+              attrs: {
+                x: _vm.xTextCoordinate(index),
+                y: _vm.yTextCoordinate(index),
+                "font-family": "Verdana",
+                "font-size": "50",
+              },
+              domProps: { textContent: _vm._s(_vm.shortNames[index]) },
+            })
+          }),
+          0
+        ),
+      ],
+      2
+    ),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
 
 
 /***/ }),
@@ -57527,19 +58149,139 @@ var render = function () {
         _c(
           "div",
           [
-            _c("h1", { staticClass: "baskerville text-center m-2" }, [
-              _c("b", [_vm._v(_vm._s(info.Nom_formation))]),
+            _c(
+              "h1",
+              {
+                staticClass:
+                  "baskerville text-center m-2 d-flex justify-content-center",
+              },
+              [
+                _c("b", [_vm._v(_vm._s(info.Nom_formation))]),
+                _vm._v(" "),
+                _c("a", { attrs: { href: info.url, target: "_blank" } }, [
+                  _c(
+                    "svg",
+                    {
+                      attrs: {
+                        xmlns: "http://www.w3.org/2000/svg",
+                        height: "24px",
+                        viewBox: "0 0 24 24",
+                        width: "24px",
+                        fill: "#000000",
+                      },
+                    },
+                    [
+                      _c("path", {
+                        attrs: { d: "M0 0h24v24H0z", fill: "none" },
+                      }),
+                      _vm._v(" "),
+                      _c("path", {
+                        attrs: {
+                          d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z",
+                        },
+                      }),
+                    ]
+                  ),
+                ]),
+              ]
+            ),
+            _vm._v(" "),
+            _c("span", { staticClass: "d-flex  justify-content-center" }, [
+              _c(
+                "svg",
+                {
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    height: "24px",
+                    viewBox: "0 0 24 24",
+                    width: "24px",
+                    fill: "#000000",
+                  },
+                },
+                [
+                  _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                  _vm._v(" "),
+                  _c("path", {
+                    attrs: {
+                      d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                    },
+                  }),
+                ]
+              ),
+              _vm._v(" " + _vm._s(info.Ville) + " "),
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "noto m-2" }, [
+            _c("br"),
+            _vm._v(" "),
+            _c("p", { staticClass: "noto  d-flex " }, [
+              _c(
+                "svg",
+                {
+                  staticClass: "mr-2",
+                  attrs: {
+                    xmlns: "http://www.w3.org/2000/svg",
+                    "enable-background": "new 0 0 24 24",
+                    height: "24px",
+                    viewBox: "0 0 24 24",
+                    width: "24px",
+                    fill: "#000000",
+                  },
+                },
+                [
+                  _c("g", [
+                    _c("rect", {
+                      attrs: { fill: "none", height: "24", width: "24" },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _c("g", [
+                    _c("g", [
+                      _c("rect", {
+                        attrs: { height: "7", width: "3", x: "4", y: "10" },
+                      }),
+                      _vm._v(" "),
+                      _c("rect", {
+                        attrs: { height: "7", width: "3", x: "10.5", y: "10" },
+                      }),
+                      _vm._v(" "),
+                      _c("rect", {
+                        attrs: { height: "3", width: "20", x: "2", y: "19" },
+                      }),
+                      _vm._v(" "),
+                      _c("rect", {
+                        attrs: { height: "7", width: "3", x: "17", y: "10" },
+                      }),
+                      _vm._v(" "),
+                      _c("polygon", {
+                        attrs: { points: "12,1 2,6 2,8 22,8 22,6" },
+                      }),
+                    ]),
+                  ]),
+                ]
+              ),
+              _vm._v(" "),
+              _c("b", [_vm._v(_vm._s(info.Departement))]),
+            ]),
+            _vm._v(" "),
+            _c("p", { staticClass: "noto mt-2  p-2 bg-white rounded-sm" }, [
               _vm._v(" " + _vm._s(info.Description)),
             ]),
             _vm._v(" "),
-            _c("p", { staticClass: "noto m-2" }, [
-              _vm._v(" " + _vm._s(info.Departement)),
-            ]),
-            _vm._v(" "),
-            _c("div"),
+            _c(
+              "div",
+              { staticClass: " d-flex justify-content-center bg-white" },
+              [
+                _c("v-radar", {
+                  attrs: {
+                    stats: _vm.stats,
+                    polycolor: _vm.polycolor,
+                    radar: _vm.radar,
+                    scale: _vm.scale,
+                  },
+                }),
+              ],
+              1
+            ),
             _vm._v(" "),
             _c("br"),
             _vm._v(" "),
@@ -57588,6 +58330,27 @@ var render = function () {
             }),
             _vm._v(" "),
             _c("br"),
+            _vm._v(" "),
+            _c("vue-word-cloud", {
+              attrs: {
+                words: [
+                  ["romance", 19],
+                  ["horror", 3],
+                  ["fantasy", 7],
+                  ["adventure", 3],
+                ],
+                color: function (ref) {
+                  var weight = ref[1]
+
+                  return weight > 10
+                    ? "DeepPink"
+                    : weight > 5
+                    ? "RoyalBlue"
+                    : "Indigo"
+                },
+                "font-family": "Noto Sans",
+              },
+            }),
           ],
           1
         ),
@@ -75073,6 +75836,17 @@ var __vue_script__ = script;
   );
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__vue_component__);
+
+
+/***/ }),
+
+/***/ "./node_modules/vuewordcloud/index.js":
+/*!********************************************!*\
+  !*** ./node_modules/vuewordcloud/index.js ***!
+  \********************************************/
+/***/ (function(module) {
+
+!function(t,n){ true?module.exports=n():0}(this,(function(){"use strict";function t(t){return"function"==typeof t}function n(){}var i=function(t){this.previousValue=t,this.interrupted=!1,this.interruptHandlers=new Set};i.prototype.throwIfInterrupted=function(){if(this.interrupted)throw new Error},i.prototype.interrupt=function(){this.interrupted||(this.interrupted=!0,this.interruptHandlers.forEach((function(t){try{t()}catch(t){}})))},i.prototype.onInterrupt=function(t){if(this.interrupted&&!this.interruptHandlers.has(t))try{t()}catch(t){}this.interruptHandlers.add(t)};function r(t){return function(){return t}}function e(){return[]}var o={animationDuration:{type:Number,default:1e3},animationEasing:{type:String,default:"ease"},animationOverlap:{type:Number,default:1},color:{type:[String,Function],default:"Black"},createCanvas:{type:Function,default:function(){return document.createElement("canvas")}},createWorker:{type:Function,default:function(t){return new Worker(URL.createObjectURL(new Blob([t])))}},enterAnimation:{type:[Object,String],default:r({opacity:0})},fontFamily:{type:[String,Function],default:"serif"},fontSizeRatio:{type:Number,default:0},fontStyle:{type:[String,Function],default:"normal"},fontVariant:{type:[String,Function],default:"normal"},fontWeight:{type:[String,Function],default:"normal"},leaveAnimation:{type:[Object,String],default:r({opacity:0})},loadFont:{type:Function,default:function(t,n,i,r){return document.fonts.load([n,i,"1px",t].join(" "),r)}},rotation:{type:[Number,Function],default:0},rotationUnit:{type:[String,Function],default:"turn"},spacing:{type:Number,default:0},text:{type:[String,Function],default:""},weight:{type:[Number,Function],default:1},words:{type:Array,default:e}};var u=r(null);function a(t){if(t){var n=typeof t;return"object"===n||"function"===n}return!1}function f(t){return"string"==typeof t}var s={animationOptions:function(){var t,n,i,r=this.animationDuration,e=this.enterAnimation,o=this.leaveAnimation;if(a(e)&&a(o)){var s=(t=Object.assign({},e,o),n=u,i={},Object.entries(t).forEach((function(r){var e=r[0],o=r[1];i[e]=n(o,e,t)})),i),c=function(t){Object.assign(t.style,e)},h=function(t,n){setTimeout((function(){Object.assign(t.style,s),setTimeout(n,r)}),1)};return{props:{css:!1},on:{beforeAppear:c,appear:h,beforeEnter:c,enter:h,leave:function(t,n){Object.assign(t.style,o),setTimeout(n,r)}}}}return f(e)&&f(o)?{props:{duration:r,appear:!0,appearActiveClass:e,enterActiveClass:e,leaveActiveClass:o}}:{}},normalizedAnimationOverlap:function(){var t=this.animationOverlap;return(t=Math.abs(t))<1&&(t=1/t),t},separateAnimationDelay:function(){var t=this.cloudWords;if(t.length>1){return(this.animationDuration-this.separateAnimationDuration)/(t.length-1)}return 0},separateAnimationDuration:function(){var t=this.cloudWords;if(t.length>0){var n=this.animationDuration,i=this.normalizedAnimationOverlap;return n/Math.min(i,t.length)}return 0}},c=Array.isArray;function h(n){return t(n)?n:r(n)}var l=2*Math.PI,v=l/360;function d(t){return void 0===t}function m(t,n){return t.postMessage(n),function(t){return new Promise((function(n,i){var r,e=function(t){var i=t.data;r(),n(i)},o=function(t){var n=t.error;r(),i(n)};r=function(){t.removeEventListener("message",e),t.removeEventListener("error",o)},t.addEventListener("message",e),t.addEventListener("error",o)}))}(t)}function p(t,n,i){return Math.ceil(t*Math.abs(Math.sin(i))+n*Math.abs(Math.cos(i)))}function g(t,n,i){return Math.ceil(t*Math.abs(Math.cos(i))+n*Math.abs(Math.sin(i)))}function b(t,n,i,r,e){return[t,n,i,r+"px",e].join(" ")}function y(t,n){return Math.ceil(t/n)*n}function M(t,n,i){var r=i().getContext("2d");return r.font=n,r.measureText(t).width}var w=function(t,n,i,r,e,o,u){this.t=t,this.i=n,this.o=i,this.u=r,this.s=e,this.h=o,this.l=u,this.v=1,this.m=0,this.p=0,this.g=0},x={M:{configurable:!0},S:{configurable:!0},j:{configurable:!0},F:{configurable:!0},O:{configurable:!0},W:{configurable:!0},A:{configurable:!0},B:{configurable:!0},C:{configurable:!0},L:{configurable:!0},_:{configurable:!0},P:{configurable:!0},T:{configurable:!0},k:{configurable:!0},N:{configurable:!0},D:{configurable:!0},H:{configurable:!0},R:{configurable:!0},U:{configurable:!0}};x.M.get=function(){return this.v},x.M.set=function(t){this.v!==t&&(this.v=t,this.V=void 0)},x.S.get=function(){return b(this.h,this.s,this.u,this.M,this.o)},x.j.get=function(){return void 0===this.q&&(this.q=M(this.t,b(this.h,this.s,this.u,1,this.o),this.l)),this.q},x.F.get=function(){return this.j*this.M},x.O.get=function(){return this.p*this.M},x.O.set=function(t){this.p=t/this.M},x.W.get=function(){return this.g*this.M},x.W.set=function(t){this.g=t/this.M},x.A.get=function(){return g(this.F,this.M,this.i)},x.B.get=function(){return p(this.F,this.M,this.i)},x.C.get=function(){return this.O-this.A/2},x.L.get=function(){return this.W-this.B/2},x._.get=function(){return this.m},x._.set=function(t){this.m!==t&&(this.m=t,this.V=void 0)},x.P.get=function(){return void 0===this.V&&(this.V=function(t,n,i,r,e,o,u,a,f){var s=b(n,i,r,e*=4,o),c=u*e*2,h=c+M(t,s,f),l=c+e,v=f(),d=v.getContext("2d"),m=y(g(h,l,a),4),w=y(p(h,l,a),4);v.width=m,v.height=w,d.translate(m/2,w/2),d.rotate(a),d.font=s,d.textAlign="center",d.textBaseline="middle",d.fillText(t,0,0),c>0&&(d.miterLimit=1,d.lineWidth=c,d.strokeText(t,0,0));for(var x=d.getImageData(0,0,m,w).data,S=[],j=1/0,F=0,O=1/0,E=0,W=m/4,A=w/4,B=0;B<W;++B)for(var C=0;C<A;++C)t:for(var L=0;L<4;++L)for(var _=0;_<4;++_){if(x[4*(m*(4*C+_)+(4*B+L))+3]){S.push([B,C]),j=Math.min(B,j),F=Math.max(B+1,F),O=Math.min(C,O),E=Math.max(C+1,E);break t}}return S.length>0?[S.map((function(t){var n=t[0],i=t[1];return[n-j,i-O]})),F-j,E-O,Math.ceil(W/2)-j,Math.ceil(A/2)-O]:[S,0,0,0,0]}(this.t,this.h,this.s,this.u,this.M,this.o,this._,this.i,this.l)),this.V},x.T.get=function(){return this.P[0]},x.k.get=function(){return this.P[1]},x.N.get=function(){return this.P[2]},x.D.get=function(){return this.P[3]},x.H.get=function(){return this.P[4]},x.R.get=function(){return Math.ceil(this.O)-this.D},x.R.set=function(t){this.O=t+this.D},x.U.get=function(){return Math.ceil(this.W)-this.H},x.U.set=function(t){this.W=t+this.H},Object.defineProperties(w.prototype,x);var S={cloudWords:function(t){this.$emit("update:cloudWords",t)},progress:{handler:function(t){this.$emit("update:progress",t)},deep:!0,immediate:!0}};var j={updateElementSize:function(){var t=this.$el;t&&(this.elementWidth=t.offsetWidth,this.elementHeight=t.offsetHeight)}};var F={name:"VueWordCloud",mixins:[function(r){return{data:function(){var t={};return Object.keys(r).forEach((function(n){t["asyncComputed_trigger_"+n]={}})),t},computed:{},beforeCreate:function(){var e=this,o=new Set;Object.entries(r).forEach((function(r){var u=r[0],a=r[1],f=a.get,s=a.default,c=a.errorHandler;void 0===c&&(c=n);var h,l=!0;e.$options.computed[u]=function(){return this["asyncComputed_trigger_"+u],this["asyncComputed_promise_"+u],s},e.$options.computed["asyncComputed_promise_"+u]=function(){var n=this;h&&(h.interrupt(),o.delete(h)),l&&(l=!1,t(s)&&(s=s.call(this)));var r=new i(s);h=r,o.add(h),new Promise((function(t){t(f.call(n,r))})).then((function(t){r.throwIfInterrupted(),s=t,n["asyncComputed_trigger_"+u]={}})).catch(c)}}))}}}({cloudWords:{get:function(t){var i,r=this,e=this,o=e.elementWidth,u=e.elementHeight,s=e.words,p=e.text,g=e.weight,b=e.rotation,y=e.rotationUnit,M=e.fontFamily,x=e.fontWeight,S=e.fontVariant,j=e.fontStyle,F=e.color,O=e.spacing,E=e.fontSizeRatio,W=e.createCanvas,A=e.loadFont,B=e.createWorker;i=E,E=(i=Math.abs(i))>1?1/i:i;var C=function(t){var n=t[0],i=t[1];return n>i?[1,i/n]:i>n?[n/i,1]:[1,1]}([o,u]);if(o>0&&u>0){var L=h(p),_=h(g),P=h(b),T=h(y),k=h(M),N=h(x),z=h(S),D=h(j),H=h(F);return s=s.map((function(t,n){var i,r,e,o,u,h,m,p,g,b,y;t&&(f(t)?e=t:c(t)?(e=(i=t)[0],o=i[1]):a(t)&&(e=(r=t).text,o=r.weight,u=r.rotation,h=r.rotationUnit,m=r.fontFamily,p=r.fontWeight,g=r.fontVariant,b=r.fontStyle,y=r.color)),d(e)&&(e=L(t,n,s)),d(o)&&(o=_(t,n,s)),d(u)&&(u=P(t,n,s)),d(h)&&(h=T(t,n,s)),d(m)&&(m=k(t,n,s)),d(p)&&(p=N(t,n,s)),d(g)&&(g=z(t,n,s)),d(b)&&(b=D(t,n,s)),d(y)&&(y=H(t,n,s));var M=new w(e,function(){switch(h){case"turn":return u*l;case"deg":return function(t){return t*v}(u)}return u}(),m,p,g,b,W);return Object.assign(M,{J:t,Y:o,G:y}),M})),Promise.resolve().then((function(){return Promise.all(s.map((function(t){var n=t.o,i=t.h,r=t.u,e=t.t;return A(n,i,r,e)})))})).catch(n).then((function(){if((s=s.filter((function(t){return t.F>0})).sort((function(t,n){return n.Y-t.Y}))).length>0){var n=s[0],i=function(t){return t[(n=t,n.length-1)];var n}(s),e=n.Y,a=i.Y;if(a<e){var f=E>0?1/E:a>0?e/a:e<0?a/e:1+e-a;s.forEach((function(t){var n,i,r;t.M=(n=t.Y,(r=1)+(n-(i=a))*(f-r)/(e-i))}))}s.reduceRight((function(t,n){return n.M<2*t?n.M/=t:(t=n.M,n.M=1),n.I=t}),1),s.forEach((function(t){t.M*=4}));var c=B('!function(){"use strict";var r=function(t){self.removeEventListener("message",r);var n,e,a,f,i,u=t.data,o=function(){n={},e=0,a=0,f=0,i=0};o();var s=function(){return Math.ceil((e+a)/2)},v=function(){return Math.ceil((f+i)/2)},c=function(){return{left:s(),top:v(),width:a-e,height:i-f}},l=function(r,t,u){r.forEach((function(r){var o=r[0],s=r[1],v=t+o,c=u+s;n[v+"|"+c]=!0,e=Math.min(v,e),a=Math.max(v+1,a),f=Math.min(c,f),i=Math.max(c+1,i)}))},h=function(r,t,e){return function(r,t,n){var e,a,f=r[0],i=r[1],u=t[0],o=t[1];f>i?(e=1,a=i/f):i>f?(a=1,e=f/i):e=a=1;var s=[u,o];if(n(s))return s;for(var v=u,c=o,l=u,h=o,M=v,d=c;;){u-=e,o-=a,v+=e,c+=a;var m=Math.floor(u),g=Math.floor(o),p=Math.ceil(v),E=Math.ceil(c);if(p>M)for(var L=g;L<E;++L){var x=[p,L];if(n(x))return x}if(E>d)for(var y=p;y>m;--y){var w=[y,E];if(n(w))return w}if(m<l)for(var B=E;B>g;--B){var F=[m,B];if(n(F))return F}if(g<h)for(var b=m;b<p;++b){var j=[b,g];if(n(j))return j}l=m,h=g,M=p,d=E}}(u,[t+s(),e+v()],(function(t){var e=t[0],a=t[1];return function(r,t,e){return r.every((function(r){var a=r[0],f=r[1];return!n[t+a+"|"+(e+f)]}))}(r,e,a)}))};self.postMessage({}),self.addEventListener("message",(function(r){self.postMessage({getBounds:c,put:l,findFit:h,clear:o}[r.data.name].apply(null,r.data.args))}))};self.addEventListener("message",r)}();\n'),h={completedWords:0,totalWords:s.length};return Promise.resolve().then((function(){return t.throwIfInterrupted(),r.progress=h,m(c,C)})).then((function(){t.throwIfInterrupted(),h.completedWords++;var n=Promise.resolve();return s.reduce((function(i,r,e){return n=n.then((function(){return r.I<i.I?Promise.resolve().then((function(){return m(c,{name:"clear"})})).then((function(){var t=Promise.resolve(),n=i.I/r.I;return s.slice(0,e).forEach((function(i){t=t.then((function(){return i.M*=n,m(c,{name:"put",args:[i.T,i.R,i.U]})}))})),t})):m(c,{name:"put",args:[i.T,i.R,i.U]})})).then((function(){return r._=O,m(c,{name:"findFit",args:[r.T,r.R,r.U]})})).then((function(n){var i=n[0],e=n[1];t.throwIfInterrupted(),h.completedWords++,r.R=i,r.U=e,r._=0})),r})),n})).then((function(){return m(c,{name:"put",args:[i.T,i.R,i.U]})})).then((function(){return m(c,{name:"getBounds"})})).then((function(t){var n=t.left,i=t.top,r=t.width,e=t.height;if(r>0&&e>0){var a=Math.min(o/r,u/e);s.forEach((function(t){t.O-=n,t.W-=i,t.M*=a}))}var f=new Set;return s.map((function(t){for(var n=t.J,i=t.t,r=t.Y,e=t.i,o=t.o,u=t.u,a=t.s,s=t.h,c=t.S,h=t.O,l=t.W,v=t.G,d=JSON.stringify([i,o,u,a,s]);f.has(d);)d+="!";return f.add(d),{key:d,word:n,text:i,weight:r,rotation:e,font:c,color:v,left:h,top:l}}))})).finally((function(){c.terminate()})).finally((function(){t.throwIfInterrupted(),r.progress=null}))}return[]}))}return[]},default:e}})],props:o,data:function(){return{elementWidth:0,elementHeight:0,progress:null}},computed:s,watch:S,mounted:function(){var t,n,i=this;t=function(){if(i._isDestroyed)return!1;i.updateElementSize()},n=1e3,function(t){var n=function(){for(var i=[],r=arguments.length;r--;)i[r]=arguments[r];return t.call.apply(t,[this,n].concat(i))};return n}((function(i){requestAnimationFrame((function(){!1!==t()&&setTimeout(i,n)}))}))()},methods:j,render:function(t){var n=this.$scopedSlots,i=this.animationEasing,r=this.animationOptions,e=this.cloudWords,o=this.separateAnimationDelay,u=this.separateAnimationDuration;return n=Object.assign({},{default:function(t){return t.text}},n),t("div",{style:{height:"100%",position:"relative",width:"100%"}},[t("div",{style:{bottom:"50%",position:"absolute",right:"50%",transform:"translate(50%,50%)"}},e.map((function(e,a){var f=e.color,s=e.font,c=e.left,h=e.rotation,l=e.text,v=e.top,d=e.weight,m=e.word;return t("transition",Object.assign({},r),[t("div",{key:a,style:Object.assign({},{left:c+"px",position:"absolute",top:v+"px"},u>0?{animation:[u+"ms",i,o*a+"ms"].join(" "),transition:["all",u+"ms",i,o*a+"ms"].join(" ")}:{})},[t("div",{style:Object.assign({},{bottom:0,position:"absolute",right:0,transform:["translate(50%,50%)","rotate("+h+"rad)"].join(" ")},u>0?{transition:["all",u+"ms",i,o*a+"ms"].join(" ")}:{})},[t("span",{style:{color:f,display:"inline-block",font:s,lineHeight:1,transform:"translateY(-0.1em)",whiteSpace:"nowrap"}},[n.default({color:f,font:s,left:c,text:l,top:v,weight:d,word:m})])])])])})))])}},O=globalThis.window;if(O){var E=O.Vue;E&&E.component(F.name,F)}return F}));
 
 
 /***/ }),

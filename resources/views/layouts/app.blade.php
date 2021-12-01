@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/logo/ico.ico" />
     <title>WhiteBookDH</title>
-
+    <script src="https://kit.fontawesome.com/7e8ea06366.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- Le css Bootstrap -->
@@ -462,6 +463,10 @@
         .bg-info {
             background-color: #2A3B5C !important;
         }
+
+        .bg-white {
+            background-color: #ffffff !important;
+        }
         .text-info {
             color: #2A3B5C !important;
 
@@ -482,7 +487,9 @@
 
         }
         
+
         
+
 
         
         
@@ -532,6 +539,10 @@
                         <a class="nav-link" href="#"> Comparator</a>
                     </li>
 
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('opensphere') ? 'active' : '' }}" href="/opensphere">opensphere</a>
+                    </li>
+
                 </ul>
 
             </div>
@@ -548,6 +559,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
     <script src="https://unpkg.com/vue-chartjs/dist/vue-chartjs.min.js"></script>
     <script src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <script src="{{ mix('js/app.js') }}" type="text/javascript"></script>
 
 </body>

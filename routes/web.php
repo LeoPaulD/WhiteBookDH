@@ -23,6 +23,10 @@ Route::get('/map', function () {
     return view('map.index');
 });
 
+Route::get('/opensphere', function () {
+    return view('opensphere.index');
+});
+
 Route::get('/data++', function () {
     return view('data.index');
 });
