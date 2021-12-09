@@ -22,12 +22,15 @@ window.Vue = require('vue').default;
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('info-component', require('./components/InfoComponent.vue').default);
 Vue.component('data-component', require('./components/DataComponent.vue').default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+
+ Vue.config.productionTip = false;
  import Vue from 'vue'
  
  import Chartkick from 'vue-chartkick'

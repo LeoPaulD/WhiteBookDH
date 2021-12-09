@@ -6,7 +6,9 @@
 
 
       <div>
-        <h1 class="baskerville text-center m-2 d-flex justify-content-center"> <b>{{ info.Nom_formation }}</b>
+        <h2>{{data}} </h2>
+        <h3>{{labels}}</h3>
+        <h1 class="baskerville text-center m-2 d-flex justify-content-center"> <b>{{ info.titre }}</b>
           <a :href="info.url" target="_blank">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
               <path d="M0 0h24v24H0z" fill="none" />
@@ -41,14 +43,17 @@
 
 
         <div class=" d-flex justify-content-center bg-white">
-          <v-radar :stats="stats" :polycolor="polycolor" :radar="radar" :scale="scale">
-          </v-radar>
-
+          
+          <RadarChart :id="id"/>
+          
         </div>
         <br>
-        <pie-chart
-          :data="{'Outils': info.Outils, 'Recherche': info.Recherche, 'Corpus': info.Corpus, 'Culture': info.Culture, 'Service': info.Service, 'Data': info.Data, 'Methodes': info.Methodes}">
-        </pie-chart>
+
+        <MixChart  />
+        
+        
+        
+        
         <br>
         <column-chart :data="[['Sun', 32], ['Mon', 46], ['Tue', 28]]"></column-chart>
         <br>
@@ -71,70 +76,33 @@
 </template>
 
 <script>
+
+
   import VueWordCloud from 'vuewordcloud';
   import Radar from 'vue-radar';
+  import axios from 'axios';
+  import RadarChart from "./charts/RadarChart.vue";
+import MixChart from './charts/MixChart.vue';
+
+
+
   export default {
-    name: 'Example',
+    name: 'App',
     props: {
       id: String,
     },
     components: {
       [VueWordCloud.name]: VueWordCloud,
-      'v-radar': Radar
+      'v-radar': Radar,
+      RadarChart,
+        MixChart,
 
     },
     data() {
       return {
         infos: [],
-        radar: {
-                                          // same unit than above (diamètre = 900), keep the radius < (viewbox / 2)
-            structure: {
-                external: {                             // external stroke of the structure's polygon
-                    strokeColor: 'rgba(0, 0, 0, 1)',    // color (any css format is usable (hexa, rgb, rgba...))
-                    strokeWidth: '4',                   // pixel unit
-                },
-                internals: {                            // internals stroke of the structure's polygon (one every 10%)
-                    strokeColor: 'rgba(0, 0, 0, .3)',   // color (any css format is usable (hexa, rgb, rgba...))
-                    strokeWidth: '1',                   // pixel unit
-                },
-                average: {                              // average polygon (placed at 50%)
-                    strokeColor: 'rgba(0, 0, 0, 1)',    // stroke color (any css format is usable (hexa, rgb, rgba...))
-                    strokeWidth: '2',                   // pixel unit
-                    fillColor: 'rgba(0, 0, 0, .5)',     // polygon color (any css format is usable (hexa, rgb, rgba...))
-                },
-            },
-            lines: {                                    // lines from center to summits
-                strokeColor: 'rgba(0, 0, 0, .3)',       // color (any css format is usable (hexa, rgb, rgba...))
-                strokeWidth: '1',                       // pixel unit
-            }
-        },
-        scale: {                                        // scales of corresponding statistic
-            
-        },
-        stats: [
-            {
-                name: 'Recherche',                          // string
-                value: 12,                              // int
-                shortName: 'Recherche',                         // The two first letters are used to be display next to their corresponding summits
-            },
-            {
-                name: 'Corpus',
-                value: 77,
-                shortName: 'Corpus'
-            },
-            {
-                name: 'Méthodes',
-                value: 44,
-                shortName: 'Méthodes'
-            },
-            {
-                name: 'Data',
-                value: 44,
-                shortName: 'Data'
-            },
-        ],
-        polycolor: 'rgba(250, 100, 50, .5)'             // color (any css format is usable (hexa, rgb, rgba...))
-    
+        inforadar: [],
+        
       };
 
     },
@@ -144,6 +112,8 @@
         .get('../api/infomaster/' + this.id)
         .then(response => (this.infos = response.data))
 
+      
+        
     },
     computed: {
 

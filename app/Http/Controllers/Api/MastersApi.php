@@ -14,7 +14,7 @@ class MastersApi extends Controller
         SELECT
             *
         FROM 
-            dnhdanglosaxon_data
+            mytable
         WHERE
             localisation IS NOT NULL
         

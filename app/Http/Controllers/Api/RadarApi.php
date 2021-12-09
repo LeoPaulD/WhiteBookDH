@@ -6,20 +6,20 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class InfoMasterApi extends Controller
+class RadarApi extends Controller
 {
     public function index($query =null)
     {
         $master = DB::select("
-        SELECT
-            *
+        SELECT 
+            categorie_matiere, COUNT(categorie_matiere) as nb
         FROM 
-            mytable
+            metacomp
         WHERE
-            localisation IS NOT NULL and id = $query
+            formation_id = $query
         
-        ORDER BY
-            nom_formation
+        GROUP BY 
+            categorie_matiere
         
         ");
         
