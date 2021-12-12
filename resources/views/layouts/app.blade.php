@@ -487,6 +487,9 @@
 
         }
         
+        .active-primary{
+            background-color: #D9B391 !important;
+        }
 
         
 

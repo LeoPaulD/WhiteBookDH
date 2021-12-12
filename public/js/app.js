@@ -2207,6 +2207,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2224,11 +2243,22 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       inforadar: []
     };
   },
+  watch: {
+    id: function id(newVal, oldVal) {
+      var _this = this;
+
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+      axios__WEBPACK_IMPORTED_MODULE_2___default().get('../api/infomaster/' + this.id).then(function (response) {
+        return _this.infos = response.data;
+      });
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_2___default().get('../api/infomaster/' + this.id).then(function (response) {
-      return _this.infos = response.data;
+      return _this2.infos = response.data;
     });
   },
   computed: {},
@@ -2383,6 +2413,185 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2413,7 +2622,7 @@ __webpack_require__.r(__webpack_exports__);
       infoid: '',
       master: [],
       zoom: 2.5,
-      center: (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(20, 10),
+      center: (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(25, 10),
       url: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors',
       withPopup: (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(40.74881093824601, -73.98398554515835),
@@ -2424,8 +2633,7 @@ __webpack_require__.r(__webpack_exports__);
       mapOptions: {
         zoomSnap: 0.5,
         zoomControl: false
-      },
-      showMap: true
+      }
     };
   },
   mounted: function mounted() {
@@ -2457,13 +2665,18 @@ __webpack_require__.r(__webpack_exports__);
     clickMarker: function clickMarker(id) {
       this.infoid = id;
     },
+    changezoom: function changezoom(zoom) {
+      this.zoom = 8;
+      this.center = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(zoom.split(',')[0], zoom.split(',')[1] - 1);
+    },
     show: function show() {
-      this.isActive = !this.isActive;
-
       if (this.info == false) {
         this.info = true;
         this.hover = 'fill: #D9B391';
-      } else {
+      }
+    },
+    close: function close() {
+      if (this.info == true) {
         this.info = false;
         this.hover = 'fill: #2A3B5C';
       }
@@ -2538,22 +2751,58 @@ __webpack_require__.r(__webpack_exports__);
       data: []
     };
   },
+  watch: {
+    id: function id(newVal, oldVal) {
+      var _this = this;
+
+      // watch it
+      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
+      axios__WEBPACK_IMPORTED_MODULE_1___default().get('../api/radar/' + this.id).then(function (response) {
+        _this.resulttest = response.data.map(function (result) {
+          return result.nb;
+        });
+        _this.resulttest2 = _this.resulttest.reduce(function (accumulator, currentValue) {
+          return accumulator + currentValue;
+        });
+        _this.data = response.data.map(function (item) {
+          return item.nb / _this.resulttest2 * 100;
+        }), _this.labels = response.data.map(function (item) {
+          return item.categorie_matiere;
+        }), _this.renderChart({
+          labels: _this.labels,
+          datasets: [{
+            label: "Les métacompétences de cette formation",
+            backgroundColor: "rgba(42, 59, 92, 0.6)",
+            borderColor: "rgba(42, 59, 92, 0.6)",
+            pointBackgroundColor: "rgba(179,181,198,1)",
+            pointBorderColor: "#fff",
+            pointHoverBackgroundColor: "#fff",
+            pointHoverBorderColor: "rgba(179,181,198,1)",
+            data: _this.data
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: true
+        });
+      });
+    }
+  },
   mounted: function mounted() {
-    var _this = this;
+    var _this2 = this;
 
     axios__WEBPACK_IMPORTED_MODULE_1___default().get('../api/radar/' + this.id).then(function (response) {
-      _this.resulttest = response.data.map(function (result) {
+      _this2.resulttest = response.data.map(function (result) {
         return result.nb;
       });
-      _this.resulttest2 = _this.resulttest.reduce(function (accumulator, currentValue) {
+      _this2.resulttest2 = _this2.resulttest.reduce(function (accumulator, currentValue) {
         return accumulator + currentValue;
       });
-      _this.data = response.data.map(function (item) {
-        return item.nb / _this.resulttest2 * 100;
-      }), _this.labels = response.data.map(function (item) {
+      _this2.data = response.data.map(function (item) {
+        return item.nb / _this2.resulttest2 * 100;
+      }), _this2.labels = response.data.map(function (item) {
         return item.categorie_matiere;
-      }), _this.renderChart({
-        labels: _this.labels,
+      }), _this2.renderChart({
+        labels: _this2.labels,
         datasets: [{
           label: "Les métacompétences de cette formation",
           backgroundColor: "rgba(42, 59, 92, 0.6)",
@@ -2562,7 +2811,7 @@ __webpack_require__.r(__webpack_exports__);
           pointBorderColor: "#fff",
           pointHoverBackgroundColor: "#fff",
           pointHoverBorderColor: "rgba(179,181,198,1)",
-          data: _this.data
+          data: _this2.data
         }]
       }, {
         responsive: true,
@@ -94712,203 +94961,285 @@ var render = function () {
     "div",
     _vm._l(_vm.infos, function (info) {
       return _c("div", [
-        _c(
-          "div",
-          [
-            _c("h2", [_vm._v(_vm._s(_vm.data) + " ")]),
+        _c("div", [
+          _c("div", { staticClass: "d-flex flex-wrap justify-space-between" }, [
+            _vm._m(0, true),
             _vm._v(" "),
-            _c("h3", [_vm._v(_vm._s(_vm.labels))]),
-            _vm._v(" "),
+            _c("div", { staticClass: "col-8" }, [
+              _c(
+                "h1",
+                {
+                  staticClass: "baskerville  m-2 ",
+                  staticStyle: { "font-size": "24px" },
+                },
+                [_c("b", [_vm._v(_vm._s(info.Nom_formation))])]
+              ),
+              _vm._v(" "),
+              _c(
+                "h2",
+                {
+                  staticClass: "noto m-2",
+                  staticStyle: { "font-size": "18px" },
+                },
+                [_vm._v(_vm._s(info.Nom_universite))]
+              ),
+              _vm._v(" "),
+              _c("span", { staticClass: "d-flex " }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      width: "24px",
+                      fill: "#000000",
+                    },
+                  },
+                  [
+                    _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                    _vm._v(" "),
+                    _c("path", {
+                      attrs: {
+                        d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v(" " + _vm._s(info.Ville) + " "),
+              ]),
+            ]),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("p", { staticClass: "noto  d-flex " }, [
             _c(
-              "h1",
+              "svg",
               {
-                staticClass:
-                  "baskerville text-center m-2 d-flex justify-content-center",
+                staticClass: "mr-2",
+                attrs: {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  "enable-background": "new 0 0 24 24",
+                  height: "24px",
+                  viewBox: "0 0 24 24",
+                  width: "24px",
+                  fill: "#000000",
+                },
               },
               [
-                _c("b", [_vm._v(_vm._s(info.titre))]),
+                _c("g", [
+                  _c("rect", {
+                    attrs: { fill: "none", height: "24", width: "24" },
+                  }),
+                ]),
                 _vm._v(" "),
-                _c("a", { attrs: { href: info.url, target: "_blank" } }, [
-                  _c(
-                    "svg",
-                    {
-                      attrs: {
-                        xmlns: "http://www.w3.org/2000/svg",
-                        height: "24px",
-                        viewBox: "0 0 24 24",
-                        width: "24px",
-                        fill: "#000000",
-                      },
-                    },
-                    [
-                      _c("path", {
-                        attrs: { d: "M0 0h24v24H0z", fill: "none" },
-                      }),
-                      _vm._v(" "),
-                      _c("path", {
-                        attrs: {
-                          d: "M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z",
-                        },
-                      }),
-                    ]
-                  ),
+                _c("g", [
+                  _c("g", [
+                    _c("rect", {
+                      attrs: { height: "7", width: "3", x: "4", y: "10" },
+                    }),
+                    _vm._v(" "),
+                    _c("rect", {
+                      attrs: { height: "7", width: "3", x: "10.5", y: "10" },
+                    }),
+                    _vm._v(" "),
+                    _c("rect", {
+                      attrs: { height: "3", width: "20", x: "2", y: "19" },
+                    }),
+                    _vm._v(" "),
+                    _c("rect", {
+                      attrs: { height: "7", width: "3", x: "17", y: "10" },
+                    }),
+                    _vm._v(" "),
+                    _c("polygon", {
+                      attrs: { points: "12,1 2,6 2,8 22,8 22,6" },
+                    }),
+                  ]),
                 ]),
               ]
             ),
-            _vm._v(" "),
-            _c("span", { staticClass: "d-flex  justify-content-center" }, [
-              _c(
-                "svg",
-                {
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    height: "24px",
-                    viewBox: "0 0 24 24",
-                    width: "24px",
-                    fill: "#000000",
-                  },
-                },
-                [
-                  _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
-                  _vm._v(" "),
-                  _c("path", {
+            _vm._v(" " + _vm._s(info.Departement)),
+          ]),
+          _vm._v(" "),
+          _c("p", { staticClass: "noto mt-2  p-2 " }, [
+            _vm._v(" " + _vm._s(info.Description)),
+          ]),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "d-flex justify-content-center flex-wrap" },
+            [
+              _c("p", { staticClass: "noto  d-flex m-2 col-5" }, [
+                _c(
+                  "svg",
+                  {
                     attrs: {
-                      d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "enable-background": "new 0 0 24 24",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      width: "24px",
+                      fill: "#000000",
                     },
-                  }),
-                ]
-              ),
-              _vm._v(" " + _vm._s(info.Ville) + " "),
-            ]),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("p", { staticClass: "noto  d-flex " }, [
-              _c(
-                "svg",
-                {
-                  staticClass: "mr-2",
-                  attrs: {
-                    xmlns: "http://www.w3.org/2000/svg",
-                    "enable-background": "new 0 0 24 24",
-                    height: "24px",
-                    viewBox: "0 0 24 24",
-                    width: "24px",
-                    fill: "#000000",
                   },
-                },
-                [
-                  _c("g", [
-                    _c("rect", {
-                      attrs: { fill: "none", height: "24", width: "24" },
-                    }),
-                  ]),
-                  _vm._v(" "),
-                  _c("g", [
+                  [
                     _c("g", [
-                      _c("rect", {
-                        attrs: { height: "7", width: "3", x: "4", y: "10" },
-                      }),
-                      _vm._v(" "),
-                      _c("rect", {
-                        attrs: { height: "7", width: "3", x: "10.5", y: "10" },
-                      }),
-                      _vm._v(" "),
-                      _c("rect", {
-                        attrs: { height: "3", width: "20", x: "2", y: "19" },
-                      }),
-                      _vm._v(" "),
-                      _c("rect", {
-                        attrs: { height: "7", width: "3", x: "17", y: "10" },
-                      }),
-                      _vm._v(" "),
-                      _c("polygon", {
-                        attrs: { points: "12,1 2,6 2,8 22,8 22,6" },
+                      _c("path", {
+                        attrs: { d: "M0,0h24v24H0V0z", fill: "none" },
                       }),
                     ]),
-                  ]),
-                ]
-              ),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          d: "M20,4H4C2.89,4,2.01,4.89,2.01,6L2,18c0,1.11,0.89,2,2,2h16c1.11,0,2-0.89,2-2V6C22,4.89,21.11,4,20,4z M11,10H8v1h3 c0.55,0,1,0.45,1,1v3c0,0.55-0.45,1-1,1h-1v0c0,0.55-0.45,1-1,1h0c-0.55,0-1-0.45-1-1v0H7c-0.55,0-1-0.45-1-1v0c0-0.55,0.45-1,1-1 h3v-1H7c-0.55,0-1-0.45-1-1V9c0-0.55,0.45-1,1-1h1v0c0-0.55,0.45-1,1-1h0c0.55,0,1,0.45,1,1v0h1c0.55,0,1,0.45,1,1v0 C12,9.55,11.55,10,11,10z M15.65,15.9L14,14.25h4l-1.65,1.65C16.16,16.09,15.84,16.09,15.65,15.9z M14,10l1.65-1.65 c0.2-0.2,0.51-0.2,0.71,0L18,10H14z",
+                        },
+                      }),
+                    ]),
+                  ]
+                ),
+                _vm._v(
+                  "   Prix formation résident : " +
+                    _vm._s(info.Frais_natif_dollars)
+                ),
+              ]),
               _vm._v(" "),
-              _c("b", [_vm._v(_vm._s(info.Departement))]),
-            ]),
-            _vm._v(" "),
-            _c("p", { staticClass: "noto mt-2  p-2 bg-white rounded-sm" }, [
-              _vm._v(" " + _vm._s(info.Description)),
-            ]),
-            _vm._v(" "),
-            _c(
-              "div",
-              { staticClass: " d-flex justify-content-center bg-white" },
-              [_c("RadarChart", { attrs: { id: _vm.id } })],
-              1
-            ),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("MixChart"),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("column-chart", {
-              attrs: {
-                data: [
-                  ["Sun", 32],
-                  ["Mon", 46],
-                  ["Tue", 28],
-                ],
-              },
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("area-chart", {
-              attrs: { data: { "2017-01-01": 11, "2017-01-02": 6 } },
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("geo-chart", {
-              attrs: {
-                data: [
-                  ["United States", 44],
-                  ["Germany", 23],
-                  ["Brazil", 22],
-                ],
-              },
-            }),
-            _vm._v(" "),
-            _c("br"),
-            _vm._v(" "),
-            _c("vue-word-cloud", {
-              attrs: {
-                words: [
-                  ["romance", 19],
-                  ["horror", 3],
-                  ["fantasy", 7],
-                  ["adventure", 3],
-                ],
-                color: function (ref) {
-                  var weight = ref[1]
-
-                  return weight > 10
-                    ? "DeepPink"
-                    : weight > 5
-                    ? "RoyalBlue"
-                    : "Indigo"
-                },
-                "font-family": "Noto Sans",
-              },
-            }),
-          ],
-          1
-        ),
+              _c("p", { staticClass: "noto  d-flex m-2 col-5" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      width: "24px",
+                      fill: "#000000",
+                    },
+                  },
+                  [
+                    _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                    _c("path", {
+                      attrs: {
+                        d: "M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v(
+                  "   Classement Shangai : " + _vm._s(info.Classement_Shangai)
+                ),
+              ]),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c("p", { staticClass: "noto  d-flex m-2 col-5" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      width: "24px",
+                      fill: "#000000",
+                    },
+                  },
+                  [
+                    _c("path", { attrs: { d: "M0 0h24v24H0z", fill: "none" } }),
+                    _c("path", {
+                      attrs: {
+                        d: "M14 6V4h-4v2h4zM4 8v11h16V8H4zm16-2c1.11 0 2 .89 2 2v11c0 1.11-.89 2-2 2H4c-1.11 0-2-.89-2-2l.01-11c0-1.11.88-2 1.99-2h4V4c0-1.11.89-2 2-2h4c1.11 0 2 .89 2 2v2h4z",
+                        "fill-rule": "evenodd",
+                      },
+                    }),
+                  ]
+                ),
+                _vm._v("  Stage : Oui"),
+              ]),
+              _vm._v(" "),
+              _c("p", { staticClass: "noto  d-flex m-2 col-5" }, [
+                _c(
+                  "svg",
+                  {
+                    attrs: {
+                      xmlns: "http://www.w3.org/2000/svg",
+                      "enable-background": "new 0 0 24 24",
+                      height: "24px",
+                      viewBox: "0 0 24 24",
+                      width: "24px",
+                      fill: "#000000",
+                    },
+                  },
+                  [
+                    _c("path", {
+                      attrs: { d: "M0,0h24v24H0V0z", fill: "none" },
+                    }),
+                    _c("g", [
+                      _c("path", {
+                        attrs: {
+                          d: "M19.5,3.5L18,2l-1.5,1.5L15,2l-1.5,1.5L12,2l-1.5,1.5L9,2L7.5,3.5L6,2v14H3v3c0,1.66,1.34,3,3,3h12c1.66,0,3-1.34,3-3V2 L19.5,3.5z M19,19c0,0.55-0.45,1-1,1s-1-0.45-1-1v-3H8V5h11V19z",
+                        },
+                      }),
+                      _c("rect", {
+                        attrs: { height: "2", width: "6", x: "9", y: "7" },
+                      }),
+                      _c("rect", {
+                        attrs: { height: "2", width: "2", x: "16", y: "7" },
+                      }),
+                      _c("rect", {
+                        attrs: { height: "2", width: "6", x: "9", y: "10" },
+                      }),
+                      _c("rect", {
+                        attrs: { height: "2", width: "2", x: "16", y: "10" },
+                      }),
+                    ]),
+                  ]
+                ),
+                _vm._v("  Mémoire : oui"),
+              ]),
+            ]
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: " d-flex justify-content-center bg-white" },
+            [_c("RadarChart", { attrs: { id: _vm.id } })],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+        ]),
       ])
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-4 d-flex justify-content-center align-items-center" },
+      [
+        _c("div", [
+          _c("img", {
+            attrs: { src: "https://via.placeholder.com/120", alt: "" },
+          }),
+        ]),
+      ]
+    )
+  },
+]
 render._withStripped = true
 
 
@@ -94949,7 +95280,7 @@ var render = function () {
               },
             },
             [
-              _c("div", { staticStyle: {}, on: { click: _vm.show } }, [
+              _c("div", { staticStyle: {}, on: { click: _vm.close } }, [
                 _c("img", {
                   staticStyle: { height: "20px" },
                   attrs: { src: "/img/illu/close.svg", alt: "" },
@@ -94962,7 +95293,1259 @@ var render = function () {
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm.showMap
+      _vm.isMobile == false
+        ? _c("div", { staticClass: "d-flex justify-content-end" }, [
+            _c(
+              "div",
+              {
+                staticClass: "bg-primary ",
+                staticStyle: {
+                  position: "absolute",
+                  height: "90%",
+                  width: "22vw",
+                  "z-index": "1000",
+                  opacity: "0.95",
+                  overflow: "scroll",
+                },
+              },
+              _vm._l(_vm.localisations, function (data) {
+                return _c("div", { staticClass: "list-group" }, [
+                  _vm.infoid == data.id
+                    ? _c(
+                        "a",
+                        {
+                          staticClass:
+                            "list-group-item list-group-item-action active-primary ",
+                          attrs: { "aria-current": "true" },
+                          on: {
+                            click: [
+                              _vm.show,
+                              function ($event) {
+                                _vm.clickMarker(data.id),
+                                  _vm.changezoom(data.Localisation)
+                              },
+                            ],
+                          },
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex w-100 justify-content-between",
+                            },
+                            [
+                              _c("h5", { staticClass: "mb-1" }, [
+                                _vm._v(_vm._s(data.Nom_formation)),
+                              ]),
+                              _vm._v(" "),
+                              data.Pays == "Canada"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "red",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "United States"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "blue",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "United Kingdom"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "purple",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "Ireland"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "green",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "Australia"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "brown",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "India"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "pink",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "New Zealand"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "orange",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "mb-1" }, [
+                            _vm._v(_vm._s(data.Nom_universite)),
+                          ]),
+                          _vm._v(" "),
+                          _c("small", [
+                            _c("span", { staticClass: "d-flex" }, [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    height: "18px",
+                                    viewBox: "0 0 24 24",
+                                    width: "14px",
+                                    fill: "#000000",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: { d: "M0 0h24v24H0z", fill: "none" },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" " + _vm._s(data.Ville) + " "),
+                            ]),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm.infoid != data.id
+                    ? _c(
+                        "a",
+                        {
+                          staticClass:
+                            "list-group-item list-group-item-action ",
+                          attrs: { "aria-current": "true" },
+                          on: {
+                            click: [
+                              _vm.show,
+                              function ($event) {
+                                _vm.clickMarker(data.id),
+                                  _vm.changezoom(data.Localisation)
+                              },
+                            ],
+                          },
+                        },
+                        [
+                          _c(
+                            "div",
+                            {
+                              staticClass:
+                                "d-flex w-100 justify-content-between",
+                            },
+                            [
+                              _c("h5", { staticClass: "mb-1" }, [
+                                _vm._v(_vm._s(data.Nom_formation)),
+                              ]),
+                              _vm._v(" "),
+                              data.Pays == "Canada"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "red",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "United States"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "blue",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "United Kingdom"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "purple",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "Ireland"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "green",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "Australia"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "brown",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "India"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "pink",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                              _vm._v(" "),
+                              data.Pays == "New Zealand"
+                                ? _c("small", [
+                                    _c(
+                                      "svg",
+                                      {
+                                        attrs: {
+                                          xmlns: "http://www.w3.org/2000/svg",
+                                          height: "24px",
+                                          viewBox: "0 0 24 24",
+                                          width: "24px",
+                                          fill: "orange",
+                                        },
+                                      },
+                                      [
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M0 0h24v24H0V0z",
+                                            fill: "none",
+                                          },
+                                        }),
+                                        _c("path", {
+                                          attrs: {
+                                            d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                          },
+                                        }),
+                                      ]
+                                    ),
+                                  ])
+                                : _vm._e(),
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c("p", { staticClass: "mb-1" }, [
+                            _vm._v(_vm._s(data.Nom_universite)),
+                          ]),
+                          _vm._v(" "),
+                          _c("small", [
+                            _c("span", { staticClass: "d-flex" }, [
+                              _c(
+                                "svg",
+                                {
+                                  attrs: {
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    height: "18px",
+                                    viewBox: "0 0 24 24",
+                                    width: "14px",
+                                    fill: "#000000",
+                                  },
+                                },
+                                [
+                                  _c("path", {
+                                    attrs: { d: "M0 0h24v24H0z", fill: "none" },
+                                  }),
+                                  _vm._v(" "),
+                                  _c("path", {
+                                    attrs: {
+                                      d: "M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z",
+                                    },
+                                  }),
+                                ]
+                              ),
+                              _vm._v(" " + _vm._s(data.Ville) + " "),
+                            ]),
+                          ]),
+                        ]
+                      )
+                    : _vm._e(),
+                ])
+              }),
+              0
+            ),
+          ])
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isMobile == false
+        ? _c(
+            "l-map",
+            {
+              staticStyle: { height: "90%", width: "78vw" },
+              attrs: {
+                zoom: _vm.zoom,
+                center: _vm.center,
+                options: _vm.mapOptions,
+              },
+              on: {
+                "update:center": _vm.centerUpdate,
+                "update:zoom": _vm.zoomUpdate,
+              },
+            },
+            [
+              _c("l-tile-layer", {
+                attrs: { url: _vm.url, attribution: _vm.attribution },
+              }),
+              _vm._v(" "),
+              _vm.isMobile == false
+                ? _c("l-control-zoom", { attrs: { position: "topright" } })
+                : _vm._e(),
+              _vm._v(" "),
+              _vm._l(_vm.localisations, function (data) {
+                return _c(
+                  "div",
+                  [
+                    _c(
+                      "l-marker",
+                      {
+                        attrs: {
+                          "lat-lng": [
+                            data.Localisation.split(",")[0],
+                            data.Localisation.split(",")[1],
+                          ],
+                        },
+                        on: {
+                          click: [
+                            _vm.show,
+                            function ($event) {
+                              _vm.clickMarker(data.id),
+                                _vm.changezoom(data.Localisation)
+                            },
+                          ],
+                        },
+                      },
+                      [
+                        _c(
+                          "l-icon",
+                          { attrs: { "icon-size": _vm.dynamicSize } },
+                          [
+                            data.Pays == "Canada"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "red",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "United States"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "blue",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "United Kingdom"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "purple",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "Ireland"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "green",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "Australia"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "brown",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "India"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "pink",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            data.Pays == "New Zealand"
+                              ? _c("div", [
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "24px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "orange",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ])
+                              : _vm._e(),
+                            _vm._v(" "),
+                            _c("div", { staticClass: " text-center" }),
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c("l-tooltip", [
+                          _c("div", [
+                            _vm._v(
+                              "\n          " +
+                                _vm._s(data.Nom_formation) +
+                                "\n          \n        "
+                            ),
+                          ]),
+                        ]),
+                      ],
+                      1
+                    ),
+                  ],
+                  1
+                )
+              }),
+              _vm._v(" "),
+              _vm.info == false
+                ? _c("l-control", { attrs: { position: "bottomleft" } }, [
+                    _vm.isMobile == false
+                      ? _c(
+                          "div",
+                          { staticClass: "d-flex flex-column bg-light p-2" },
+                          [
+                            _c("v-text", [_c("b")]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "d-flex flex-column" },
+                              [
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Australia : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "brown",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Canada : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "red",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("India : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "pink",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Ireland : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "green",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("United Kingdom : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "purple",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("United States : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "blue",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ])
+                : _c("l-control", { attrs: { position: "bottomright" } }, [
+                    _vm.isMobile == false
+                      ? _c(
+                          "div",
+                          { staticClass: "d-flex flex-column bg-light p-2" },
+                          [
+                            _c("v-text", [_c("b")]),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "d-flex flex-column" },
+                              [
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Australia : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "brown",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Canada : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "red",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("India : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "pink",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Ireland : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "green",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("United Kingdom : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "purple",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("United States : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "blue",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        )
+                      : _vm._e(),
+                  ]),
+            ],
+            2
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.isMobile == true
         ? _c(
             "l-map",
             {

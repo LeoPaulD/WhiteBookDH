@@ -19,7 +19,7 @@ class MastersApi extends Controller
             localisation IS NOT NULL
         
         ORDER BY
-            nom_formation
+            Pays
         
         ");
         
