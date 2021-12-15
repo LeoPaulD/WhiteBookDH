@@ -2248,7 +2248,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this = this;
 
       // watch it
-      console.log('Prop changed: ', newVal, ' | was: ', oldVal);
       axios__WEBPACK_IMPORTED_MODULE_2___default().get('../api/infomaster/' + this.id).then(function (response) {
         return _this.infos = response.data;
       });
@@ -2636,6 +2635,18 @@ __webpack_require__.r(__webpack_exports__);
       }
     };
   },
+  watch: {
+    CurrentCenter: function CurrentCenter(newVal, oldVal) {
+      // watch it
+      console.log('Center changed: ', newVal, ' | was: ', oldVal);
+      this.center = newVal;
+      this.currentCenter = newVal;
+    },
+    zoom: function zoom(newVal, oldVal) {
+      // watch it
+      console.log('Zoom changed: ', newVal, ' | was: ', oldVal);
+    }
+  },
   mounted: function mounted() {
     var _this = this;
 
@@ -2665,9 +2676,9 @@ __webpack_require__.r(__webpack_exports__);
     clickMarker: function clickMarker(id) {
       this.infoid = id;
     },
-    changezoom: function changezoom(zoom) {
+    changezoom: function changezoom(zoomi) {
       this.zoom = 8;
-      this.center = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(zoom.split(',')[0], zoom.split(',')[1] - 1);
+      this.center = (0,leaflet__WEBPACK_IMPORTED_MODULE_0__.latLng)(zoomi.split(',')[0], zoomi.split(',')[1] - 1);
     },
     show: function show() {
       if (this.info == false) {
@@ -95335,8 +95346,8 @@ var render = function () {
                                 "d-flex w-100 justify-content-between",
                             },
                             [
-                              _c("h5", { staticClass: "mb-1" }, [
-                                _vm._v(_vm._s(data.Nom_formation)),
+                              _c("h5", { staticClass: "mb-1 baskerville" }, [
+                                _c("b", [_vm._v(_vm._s(data.Nom_formation))]),
                               ]),
                               _vm._v(" "),
                               data.Pays == "Canada"
@@ -95349,7 +95360,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "red",
+                                          fill: "#2A3B5C",
                                         },
                                       },
                                       [
@@ -95379,7 +95390,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "blue",
+                                          fill: "#db5239",
                                         },
                                       },
                                       [
@@ -95409,7 +95420,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "purple",
+                                          fill: "#A8510A",
                                         },
                                       },
                                       [
@@ -95439,7 +95450,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "green",
+                                          fill: "#88a845",
                                         },
                                       },
                                       [
@@ -95469,7 +95480,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "brown",
+                                          fill: "#927cd9",
                                         },
                                       },
                                       [
@@ -95499,7 +95510,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "pink",
+                                          fill: "#db3985",
                                         },
                                       },
                                       [
@@ -95529,7 +95540,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "orange",
+                                          fill: "#db7c2e",
                                         },
                                       },
                                       [
@@ -95612,8 +95623,8 @@ var render = function () {
                                 "d-flex w-100 justify-content-between",
                             },
                             [
-                              _c("h5", { staticClass: "mb-1" }, [
-                                _vm._v(_vm._s(data.Nom_formation)),
+                              _c("h5", { staticClass: "mb-1 baskerville" }, [
+                                _c("b", [_vm._v(_vm._s(data.Nom_formation))]),
                               ]),
                               _vm._v(" "),
                               data.Pays == "Canada"
@@ -95626,7 +95637,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "red",
+                                          fill: "#2A3B5C",
                                         },
                                       },
                                       [
@@ -95656,7 +95667,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "blue",
+                                          fill: "#db5239",
                                         },
                                       },
                                       [
@@ -95686,7 +95697,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "purple",
+                                          fill: "#A8510A",
                                         },
                                       },
                                       [
@@ -95716,7 +95727,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "green",
+                                          fill: "#88a845",
                                         },
                                       },
                                       [
@@ -95746,7 +95757,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "brown",
+                                          fill: "#927cd9",
                                         },
                                       },
                                       [
@@ -95776,7 +95787,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "pink",
+                                          fill: "#db3985",
                                         },
                                       },
                                       [
@@ -95806,7 +95817,7 @@ var render = function () {
                                           height: "24px",
                                           viewBox: "0 0 24 24",
                                           width: "24px",
-                                          fill: "orange",
+                                          fill: "#db7c2e",
                                         },
                                       },
                                       [
@@ -95880,10 +95891,6 @@ var render = function () {
                 center: _vm.center,
                 options: _vm.mapOptions,
               },
-              on: {
-                "update:center": _vm.centerUpdate,
-                "update:zoom": _vm.zoomUpdate,
-              },
             },
             [
               _c("l-tile-layer", {
@@ -95911,8 +95918,7 @@ var render = function () {
                           click: [
                             _vm.show,
                             function ($event) {
-                              _vm.clickMarker(data.id),
-                                _vm.changezoom(data.Localisation)
+                              return _vm.clickMarker(data.id)
                             },
                           ],
                         },
@@ -95932,7 +95938,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "red",
+                                        fill: "#2A3B5C",
                                       },
                                     },
                                     [
@@ -95962,7 +95968,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "blue",
+                                        fill: "#db5239",
                                       },
                                     },
                                     [
@@ -95992,7 +95998,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "purple",
+                                        fill: "#A8510A",
                                       },
                                     },
                                     [
@@ -96022,7 +96028,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "green",
+                                        fill: "#88a845",
                                       },
                                     },
                                     [
@@ -96052,7 +96058,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "brown",
+                                        fill: "#927cd9",
                                       },
                                     },
                                     [
@@ -96082,7 +96088,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "pink",
+                                        fill: "#db3985",
                                       },
                                     },
                                     [
@@ -96112,7 +96118,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "orange",
+                                        fill: "#db7c2e",
                                       },
                                     },
                                     [
@@ -96160,14 +96166,14 @@ var render = function () {
                           "div",
                           { staticClass: "d-flex flex-column bg-light p-2" },
                           [
-                            _c("v-text", [_c("b")]),
+                            _c("v-text", [_c("b", [_vm._v("Légende ")])]),
                             _vm._v(" "),
                             _c(
                               "div",
                               { staticClass: "d-flex flex-column" },
                               [
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("Australia : "),
+                                  _vm._v("Australie : "),
                                   _c(
                                     "svg",
                                     {
@@ -96176,7 +96182,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "brown",
+                                        fill: "#927cd9",
                                       },
                                     },
                                     [
@@ -96205,7 +96211,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "red",
+                                        fill: "#2A3B5C",
                                       },
                                     },
                                     [
@@ -96225,7 +96231,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("India : "),
+                                  _vm._v("Inde : "),
                                   _c(
                                     "svg",
                                     {
@@ -96234,7 +96240,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "pink",
+                                        fill: "#db3985",
                                       },
                                     },
                                     [
@@ -96254,7 +96260,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("Ireland : "),
+                                  _vm._v("Irelande : "),
                                   _c(
                                     "svg",
                                     {
@@ -96263,7 +96269,36 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "green",
+                                        fill: "#88a845",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Nouvelle Zelande : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "#db7c2e",
                                       },
                                     },
                                     [
@@ -96292,7 +96327,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "purple",
+                                        fill: "#A8510A",
                                       },
                                     },
                                     [
@@ -96321,7 +96356,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "blue",
+                                        fill: "#db5239",
                                       },
                                     },
                                     [
@@ -96353,14 +96388,14 @@ var render = function () {
                           "div",
                           { staticClass: "d-flex flex-column bg-light p-2" },
                           [
-                            _c("v-text", [_c("b")]),
+                            _c("v-text", [_c("b", [_vm._v("Légende ")])]),
                             _vm._v(" "),
                             _c(
                               "div",
                               { staticClass: "d-flex flex-column" },
                               [
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("Australia : "),
+                                  _vm._v("Australie : "),
                                   _c(
                                     "svg",
                                     {
@@ -96369,7 +96404,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "brown",
+                                        fill: "#927cd9",
                                       },
                                     },
                                     [
@@ -96398,7 +96433,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "red",
+                                        fill: "#2A3B5C",
                                       },
                                     },
                                     [
@@ -96418,7 +96453,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("India : "),
+                                  _vm._v("Inde : "),
                                   _c(
                                     "svg",
                                     {
@@ -96427,7 +96462,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "pink",
+                                        fill: "#db3985",
                                       },
                                     },
                                     [
@@ -96447,7 +96482,7 @@ var render = function () {
                                 ]),
                                 _vm._v(" "),
                                 _c("v-text", { staticClass: "display: flex" }, [
-                                  _vm._v("Ireland : "),
+                                  _vm._v("Irelande : "),
                                   _c(
                                     "svg",
                                     {
@@ -96456,7 +96491,36 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "green",
+                                        fill: "#88a845",
+                                      },
+                                    },
+                                    [
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M0 0h24v24H0V0z",
+                                          fill: "none",
+                                        },
+                                      }),
+                                      _c("path", {
+                                        attrs: {
+                                          d: "M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z",
+                                        },
+                                      }),
+                                    ]
+                                  ),
+                                ]),
+                                _vm._v(" "),
+                                _c("v-text", { staticClass: "display: flex" }, [
+                                  _vm._v("Nouvelle Zelande : "),
+                                  _c(
+                                    "svg",
+                                    {
+                                      attrs: {
+                                        xmlns: "http://www.w3.org/2000/svg",
+                                        height: "16px",
+                                        viewBox: "0 0 24 24",
+                                        width: "24px",
+                                        fill: "#db7c2e",
                                       },
                                     },
                                     [
@@ -96485,7 +96549,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "purple",
+                                        fill: "#A8510A",
                                       },
                                     },
                                     [
@@ -96514,7 +96578,7 @@ var render = function () {
                                         height: "16px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "blue",
+                                        fill: "#db5239",
                                       },
                                     },
                                     [
@@ -96606,7 +96670,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "red",
+                                        fill: "#2A3B5C",
                                       },
                                     },
                                     [
@@ -96636,7 +96700,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "blue",
+                                        fill: "#db5239",
                                       },
                                     },
                                     [
@@ -96666,7 +96730,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "purple",
+                                        fill: "#A8510A",
                                       },
                                     },
                                     [
@@ -96696,7 +96760,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "green",
+                                        fill: "#88a845",
                                       },
                                     },
                                     [
@@ -96726,7 +96790,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "brown",
+                                        fill: "#927cd9",
                                       },
                                     },
                                     [
@@ -96756,7 +96820,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "pink",
+                                        fill: "#db3985",
                                       },
                                     },
                                     [
@@ -96786,7 +96850,7 @@ var render = function () {
                                         height: "24px",
                                         viewBox: "0 0 24 24",
                                         width: "24px",
-                                        fill: "orange",
+                                        fill: "#db7c2e",
                                       },
                                     },
                                     [

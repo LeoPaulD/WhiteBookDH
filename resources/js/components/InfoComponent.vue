@@ -128,7 +128,7 @@ import MixChart from './charts/MixChart.vue';
     
      watch: { 
       	id: function(newVal, oldVal) { // watch it
-          console.log('Prop changed: ', newVal, ' | was: ', oldVal)
+          
           axios
         .get('../api/infomaster/' + this.id)
         .then(response => (this.infos = response.data))
