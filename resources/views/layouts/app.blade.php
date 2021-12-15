@@ -491,7 +491,10 @@
             background-color: #D9B391 !important;
         }
 
-        
+        .scrool {
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+        }
 
 
         
@@ -526,12 +529,12 @@
 
                 <ul class="navbar-nav mb-2 mb-lg-0 noto">
                     <li class="nav-item ">
-                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home </a>
+                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Accueil </a>
                     </li>
                     
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('map') ? 'active' : '' }}" href="/map">Map</a>
+                        <a class="nav-link {{ Request::is('map') ? 'active' : '' }}" href="/map">Formations</a>
                     </li>
 
                     <li class="nav-item">
@@ -539,11 +542,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Comparator</a>
+                        <a class="nav-link" href="#"> Comparateur</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('opensphere') ? 'active' : '' }}" href="/opensphere">opensphere</a>
+                        <a class="nav-link {{ Request::is('opensphere') ? 'active' : '' }}" href="/opensphere">DHsphere</a>
                     </li>
 
                 </ul>

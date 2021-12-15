@@ -15,10 +15,10 @@
     <div v-if="isMobile == false" class="d-flex justify-content-end">
 
      
-      <div style="position: absolute; height: 90%; width: 22vw; z-index: 1000; opacity: 0.95; overflow: scroll;" class="bg-primary ">
-        
-        <div class="list-group" v-for="data in localisations">
-          <a v-if="infoid == data.id" v-on:click="show" @click='clickMarker(data.id), changezoom(data.Localisation)' class="list-group-item list-group-item-action active-primary " aria-current="true">
+      <div style="position: absolute; height: 90%; width: 22vw; z-index: 1000; opacity: 0.95; overflow: scroll;" class="bg-primary scrool">
+
+        <div class="list-group" v-for="data in localisations" >
+          <a v-if="infoid == data.id" v-on:click="show" @click='clickMarker(data.id), changezoom(data.Localisation)' class="list-group-item list-group-item-action active-primary " aria-current="true" :id="'#'+ data.id">
             <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1 baskerville"><b>{{data.Nom_formation}}</b></h5>
             <small v-if="data.Pays == 'Canada'">
@@ -51,7 +51,7 @@
               d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
           </svg> {{ data.Ville }} </span></small>
           </a>
-        <a  v-if="infoid != data.id" v-on:click="show" @click='clickMarker(data.id),changezoom(data.Localisation)' class="list-group-item list-group-item-action " aria-current="true" >
+        <a  v-if="infoid != data.id" v-on:click="show" @click='clickMarker(data.id),changezoom(data.Localisation)' class="list-group-item list-group-item-action " aria-current="true"  :id="'#'+ data.id">
           <div class="d-flex w-100 justify-content-between">
             <h5 class="mb-1 baskerville"><b>{{data.Nom_formation}}</b> </h5>
             <small v-if="data.Pays == 'Canada'">
@@ -108,7 +108,7 @@
       
       
       <div v-for="data in localisations">
-      <l-marker :lat-lng="[data.Localisation.split(',')[0], data.Localisation.split(',')[1]]" v-on:click="show" @click='clickMarker(data.id)' >
+      <l-marker :lat-lng="[data.Localisation.split(',')[0], data.Localisation.split(',')[1]]" v-on:click="show" @click='clickMarker(data.id)' :href="'#'+ data.id" >
         
          <l-icon
           :icon-size="dynamicSize"
@@ -211,7 +211,7 @@
       
       
       <div v-for="data in localisations">
-      <l-marker :lat-lng="[data.Localisation.split(',')[0], data.Localisation.split(',')[1]]" v-on:click="show" @click='clickMarker(data.id)' >
+      <l-marker :lat-lng="[data.Localisation.split(',')[0], data.Localisation.split(',')[1]]" v-on:click="show" @click='clickMarker(data.id)' :href="'#'+ data.id" >
         
          <l-icon
           :icon-size="dynamicSize"

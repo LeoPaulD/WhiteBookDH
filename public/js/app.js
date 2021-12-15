@@ -95309,7 +95309,7 @@ var render = function () {
             _c(
               "div",
               {
-                staticClass: "bg-primary ",
+                staticClass: "bg-primary scrool",
                 staticStyle: {
                   position: "absolute",
                   height: "90%",
@@ -95327,7 +95327,7 @@ var render = function () {
                         {
                           staticClass:
                             "list-group-item list-group-item-action active-primary ",
-                          attrs: { "aria-current": "true" },
+                          attrs: { "aria-current": "true", id: "#" + data.id },
                           on: {
                             click: [
                               _vm.show,
@@ -95604,7 +95604,7 @@ var render = function () {
                         {
                           staticClass:
                             "list-group-item list-group-item-action ",
-                          attrs: { "aria-current": "true" },
+                          attrs: { "aria-current": "true", id: "#" + data.id },
                           on: {
                             click: [
                               _vm.show,
@@ -95913,6 +95913,7 @@ var render = function () {
                             data.Localisation.split(",")[0],
                             data.Localisation.split(",")[1],
                           ],
+                          href: "#" + data.id,
                         },
                         on: {
                           click: [
@@ -96645,6 +96646,7 @@ var render = function () {
                             data.Localisation.split(",")[0],
                             data.Localisation.split(",")[1],
                           ],
+                          href: "#" + data.id,
                         },
                         on: {
                           click: [
