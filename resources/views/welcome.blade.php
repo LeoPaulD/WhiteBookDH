@@ -37,7 +37,7 @@
             
 
             <div class="mt-5 d-flex align-items-center">
-                <img src="/img/illu/illu-home.svg" alt="" srcset="">
+                <img src="/img/illu/illu-home.png" alt="" srcset="">
             </div>
 
 

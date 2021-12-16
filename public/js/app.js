@@ -94882,7 +94882,7 @@ var render = function () {
             ],
             xtitle: "Nombre de master par pays",
             download: true,
-            colors: ["#D9B391"],
+            colors: ["#db5239", "#A8510A", "#db3985", "#a7d9aa"],
           },
         }),
         _vm._v(" "),
