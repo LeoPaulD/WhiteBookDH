@@ -17,7 +17,7 @@
                         masters degrees related to digital humanities
                         in the English-speaking world
                     </p>
-                    <a href="/map"
+                    <a href="/formations"
                         class="btn m-2 ronded-lg  d-flex justify-content-arround  shadow-sm zoom" style="width: 70%;">
                         
                         <svg class="mr-2 mt-1" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px"  fill='#2A3B5C' ><path d="M0 0h24v24H0V0z" fill="none"/><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"  /></svg>
