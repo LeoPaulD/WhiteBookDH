@@ -10,7 +10,7 @@
         <div class="d-flex flex-wrap justify-space-between">
           <div class="col-4 d-flex justify-content-center align-items-center">
             <div>
-              <img src="https://via.placeholder.com/120" alt="">
+              <img :src="'/img/logo-formations/'+info.Nom_universite+'.png'" :alt="info.Nom_universite+ ' logo'" style="max-width: 150px;">
             </div>
             
           </div>
