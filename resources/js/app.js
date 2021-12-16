@@ -22,7 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('map-component', require('./components/MapComponent.vue').default);
 Vue.component('info-component', require('./components/InfoComponent.vue').default);
 Vue.component('data-component', require('./components/DataComponent.vue').default);
-
+Vue.component('auto-component', require('./components/AutoComponent.vue').default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -35,7 +35,7 @@ Vue.component('data-component', require('./components/DataComponent.vue').defaul
  
  import Chartkick from 'vue-chartkick'
  import Highcharts from 'highcharts'
- 
+ import vuetify from './plugins/vuetify';
  Vue.use(Chartkick.use(Highcharts))
 
 
@@ -50,4 +50,5 @@ Vue.component('data-component', require('./components/DataComponent.vue').defaul
 
 const app = new Vue({
     el: '#app',
+    vuetify,
 });
