@@ -8,15 +8,6 @@
         <p class="noto"> The M.A. in Digital Humanities program cultivates both the practical skills and the humanistic knowledge needed to work on digital humanities-related projects in universities, libraries, museums, and non-profit cultural organizations.</p>
         </div>
         
- 
-
-
-
-
-  <v-app>
-    <auto-component/>
-  </v-app>
-   
   
     
   <div class="d-flex flex-wrap justify-content-between"  >

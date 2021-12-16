@@ -19,15 +19,19 @@ Route::get('/', function () {
 
 
 
-Route::get('/map', function () {
+Route::get('/formations', function () {
     return view('map.index');
 });
 
-Route::get('/opensphere', function () {
+Route::get('/dhsphere', function () {
     return view('opensphere.index');
 });
 
 Route::get('/data++', function () {
     return view('data.index');
+});
+
+Route::get('/comparateur', function () {
+    return view('comparator.index');
 });
 

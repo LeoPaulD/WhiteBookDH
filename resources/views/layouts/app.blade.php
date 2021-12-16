@@ -534,7 +534,7 @@
                     
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('map') ? 'active' : '' }}" href="/map">Formations</a>
+                        <a class="nav-link {{ Request::is('formations') ? 'active' : '' }}" href="/formations">Formations</a>
                     </li>
 
                     <li class="nav-item">
@@ -542,11 +542,11 @@
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#"> Comparateur</a>
+                        <a class="nav-link {{ Request::is('comparateur') ? 'active' : '' }}" href="/comparateur"> Comparateur</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('opensphere') ? 'active' : '' }}" href="/opensphere">DHsphere</a>
+                        <a class="nav-link {{ Request::is('dhsphere') ? 'active' : '' }}" href="/dhsphere">DHsphere</a>
                     </li>
 
                 </ul>
