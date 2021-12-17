@@ -3,7 +3,7 @@
 <title> WhiteBookDH </title>
 @show
 @section('content')
-<div style="height: 80px;"></div>
+<div style="height: 85px;"></div>
 <div class="d-flex  justify-content-center   flex-wrap scrool" >
     <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
         <div class="grid grid-cols-1 md:grid-cols-2" >

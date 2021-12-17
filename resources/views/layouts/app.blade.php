@@ -512,7 +512,7 @@
 <body class="antialiased" style="background-color: #fff">
 
     <nav class="shadow-sm   bg-body rounded fixed-top navbar navbar-expand-lg navbar-light  bg-light p-2 shadow-sm "
-        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+        style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; max-height: 80px;">
         <div class="container mr-10 ml-10   justify-content-between">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
