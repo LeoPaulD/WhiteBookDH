@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 267.2 20" style="enable-background:new 0 0 267.2 20;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#555555;}
+	.st1{fill:#D9B391;}
+	.st2{fill:url(#SVGID_1_);}
+	.st3{enable-background:new    ;}
+	.st4{fill:#010101;}
+	.st5{font-family:'Verdana';}
+	.st6{font-size:11px;}
+	.st7{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M3,0h84c1.7,0,3,1.3,3,3v14c0,1.7-1.3,3-3,3H3c-1.7,0-3-1.3-3-3V3C0,1.3,1.3,0,3,0z"/>
+<path class="st1" d="M88.7,0h167.8c5.9,0,10.7,1.3,10.7,3v14c0,1.7-4.8,3-10.7,3H88.7C82.8,20,78,18.7,78,17V3C78,1.3,82.8,0,88.7,0
+	z"/>
+<path class="st1" d="M78,0h4v20h-4V0z"/>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="-247.7155" y1="410.3398" x2="-247.7155" y2="409.3398" gradientTransform="matrix(90 0 0 -20 22428 8206.7969)">
+	<stop  offset="0" style="stop-color:#BBBBBB;stop-opacity:0.1"/>
+	<stop  offset="1" style="stop-color:#000000;stop-opacity:0.1"/>
+</linearGradient>
+<path class="st2" d="M8.9,0h249.4c4.9,0,8.9,1.3,8.9,3v14c0,1.7-4,3-8.9,3H8.9C4,20,0,18.7,0,17V3C0,1.3,4,0,8.9,0z"/>
+<g>
+	<g class="st3">
+		<text transform="matrix(1 0 0 1 0.7157 15.5478)" class="st4 st5 st6">Projet master</text>
+	</g>
+	<text transform="matrix(1 0 0 1 0.7157 14.5478)" class="st7 st5 st6">Projet master</text>
+	<g class="st3">
+		<text transform="matrix(1 0 0 1 87.3553 14.5481)" class="st4 st5 st6">Université Bordeaux Montaigne</text>
+	</g>
+	<text transform="matrix(1 0 0 1 10.8243 36.5764)" class="st5 st6" style="display:none;fill:#FFFFFF;enable-background:new    ;">Université Bordeaux Montaigne</text>
+</g>
+</svg>
