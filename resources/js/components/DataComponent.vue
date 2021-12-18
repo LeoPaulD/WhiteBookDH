@@ -63,13 +63,13 @@
             </div>
 
              <div class="mt-5 m-2 d-flex align-items-center justify-content-center" >
-                <vue-word-cloud :words="[['romance', 19], ['horror', 3], ['fantasy', 7], ['adventure', 3]]"
-          :color="([, weight]) => weight > 10 ? 'DeepPink' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
+                <vue-word-cloud :words="[['digital' ,45],['humanities',33],['students',16], ['computational', '10'], ['culture', '10'], ['research', 10], ['studies', '8'], ['arts', 7], ['data',7]] "
+          :color="([, weight]) => weight > 10 ? 'primary' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
           font-family="Noto Sans" /> 
             </div>
 
-            
-    
+             <!--  digital (131); humanities (92); research (67); information (44); history (32); media (30); methods (30); introduction (29); project (27); design (25); studies (25); data (24); social (21); public (20); culture (19); management (19); theories (19); heritage (18); theory (18); analysis (15); literature (15); programming (15); seminar (15); art (13); technologies (13); writing (13); advanced (12); development (12); language (12); practices (12); science (12); study (12); thesis (12); cultural (11); practice (11)
+            -->
         </div>
     </div>
     <br>
