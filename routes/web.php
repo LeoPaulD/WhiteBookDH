@@ -23,6 +23,8 @@ Route::get('/formations', function () {
     return view('map.index');
 });
 
+Route::get('/formations/{id}', 'App\Http\Controllers\MapController@show');
+
 Route::get('/dhsphere', function () {
     return view('opensphere.index');
 });

@@ -521,7 +521,7 @@
             <div>
                 <a class="navbar-brand" href="/">
 
-                    <img src="img/logo/web-whitebook.png" alt="Img" style="height: 50px;">
+                    <img src="/img/logo/web-whitebook.png" alt="Img" style="height: 50px;">
                 </a>
             </div>
             <div class="col-lg-6 d-md-none d-lg-block"></div>

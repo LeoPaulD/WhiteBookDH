@@ -16,5 +16,10 @@ class MapController extends Controller
         return view('map.index');
     }
 
+    public function show(Request $request,$id)
+    {
+        return view('map.show', compact('id'));
+    }
+
     
 }

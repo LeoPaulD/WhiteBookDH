@@ -13,9 +13,7 @@
                         <span class="text-secondary"><b>Données récoltés par les étudiants de Bordeaux Montaigne</b> </span>
                     <h1 class="baskerville text-primary"><b>Les masters Humanités Digitales dans le monde Anglo-Saxon </b> </h1>
                     <p>
-                        This site lists the universities that have
-                        masters degrees related to digital humanities
-                        in the English-speaking world
+                        L’analyse approfondie des curriculums proposés par les 27&nbsp;universités permet d’esquisser les contours d’un référentiel de compétence des Humanités digitales spécifiquement anglo-saxon. <br>Articulé autour de 7&nbsp;meta-compétences
                     </p>
                     <a href="/formations"
                         class="btn m-2 ronded-lg  d-flex justify-content-arround  shadow-sm zoom" style="width: 70%;">
@@ -57,8 +55,9 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary" ><b>Les prémices du projet </b> </h2>
                 <p>
-                    Issu d’une réflexion de plusieurs mois par les chercheurs du <a href="https://mica.u-bordeaux-montaigne.fr/">MICA</a> , le projet du livre blanc des Humanités Digitales dans le monde Anglo-Saxon a permis aux étudiants du Master 2 DNHD de développer une cartographie des (méta?)compétences proposées dans les formations d'universités situées aux États-Unis, Royaume-Uni, Irlande, Canada, Inde, Nouvelle-Zélande et Australie.
+                    Issu d’une réflexion de plusieurs mois par les chercheurs du <a href="https://mica.u-bordeaux-montaigne.fr/">MICA </a>, le projet du livre blanc des Humanités Digitales dans le monde Anglo-Saxon a permis aux étudiants du Master 2  <a href="#">DNHD</a> de développer une cartographie des compétences proposées dans les formations d'universités situées aux États-Unis, Royaume-Uni, Irlande, Canada, Inde, Nouvelle-Zélande et Australie.
                     Durant 4 mois et à l’aide d’une multitude d’outils, les étudiants ont cherché, traité et analysé les données qui leur permettent aujourd’hui de vous présenter ce tour d’horizon du projet, via diverses représentations visuelles détaillées. 
+
                 </p>            
              </div>
     
@@ -122,8 +121,8 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary"><b>Les outils </b> </h2>
                 <p>
-                    Nous avons utilisé une multitude d’outils durant la réalisation de ce projet afin d’exploiter au maximum notre base de données. Premièrement, la première version de cette base a été établie sur un Google Spreadsheet partagé entre tous les étudiants. Pour le traitement de certains aspects spécifiques, R à été utilisé, ainsi que Prepost SEO et SEO Rank, respectivement afin d’obtenir l’Alexa et le Moz Rank. Enfin, AirTable et <a href="https://hyperotlet.huma-num.fr/otletosphere/">Opensphère</a>  ont permis de créer la DHsphère. 
-                    Dans notre groupe, nous avons aussi utilisé … [spécifique à chaque groupe, Illustrator, Tableau, Wordpress, etc…]
+                    Nous avons utilisé une multitude d’outils durant la réalisation de ce projet afin d’exploiter au maximum notre base de données. Premièrement, la première version de cette base a été établie sur un Google Spreadsheet partagé entre tous les étudiants. Pour le traitement de certains aspects spécifiques, R à été utilisé, ainsi que Prepost SEO et SEO Rank, respectivement afin d’obtenir l’Alexa et le Moz Rank. Enfin, AirTable et <a href="https://hyperotlet.huma-num.fr/otletosphere/">Opensphère</a>  ont permis de créer la  <a href="https://dev.myllaume.fr/dhsphere/">DHsphère</a>. 
+                    Dans notre groupe, nous avons aussi utilisé adobe XD pour le maquettage, adobe Illustrator pour les différents visuels, PHP Laravel pour la partie back du site web et les API, VueJs pour la partie front, ChartJS et Chartkick pour les datavisualisations.
 
                 </p>            
             </div>
@@ -132,6 +131,80 @@
     
         </div>
     </div>
+    <br>
+    
+    <br>
+    
+<!-- Footer -->
+<footer class="text-center text-lg-start col-md-9 text-muted">
+  <!-- Section: Social media -->
+  <section
+    class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
+  >
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/l%C3%A9o-paul-dubourg/" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="https://github.com/LeoPaulD/WhiteBookDH" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <img src="img/logo/web-whitebook.png" alt="" style="height: 60px">
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-4 col-xl-2 mx-auto mb-4">
+            <img src="img/logo/ubm.png" alt="" style="height: 60px">
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-2 mx-auto mb-4">
+            <img src="img/logo/mica.png" alt="" style="height: 60px">
+        </div>
+        <!-- Grid column -->
+
+        
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+    © 2022 :
+    <a class="text-reset fw-bold" href="https://www.u-bordeaux-montaigne.fr/fr/index.html">Université Bordeaux-Montaigne</a>
+  </div>
+  
+</footer>
+<!-- Footer -->
 </div>
 
 @endsection
