@@ -10,10 +10,10 @@
             
                 <div class=" d-flex flex-column justify-content-center  col-lg-11  " >
                     
-                        <span class="text-secondary"><b>Données récoltés par les étudiants de Bordeaux Montaigne</b> </span>
+                        <span class="text-secondary"><b>Données récoltées par les étudiants de Bordeaux Montaigne</b> </span>
                     <h1 class="baskerville text-primary"><b>Les masters Humanités Digitales dans le monde Anglo-Saxon </b> </h1>
                     <p>
-                        L’analyse approfondie des curriculums proposés par les 27&nbsp;universités permet d’esquisser les contours d’un référentiel de compétence des Humanités digitales spécifiquement anglo-saxon. <br>Articulé autour de 7&nbsp;meta-compétences
+                        L’analyse approfondie des curriculums proposés par les 27&nbsp;universités permet d’esquisser les contours d’un référentiel de compétences des Humanités digitales spécifiquement anglo-saxonnes. <br>Articulé autour de 7&nbsp;meta-compétences
                     </p>
                     <a href="/formations"
                         class="btn m-2 ronded-lg  d-flex justify-content-arround  shadow-sm zoom" style="width: 70%;">
@@ -79,7 +79,7 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary"><b>Les formations et leur spécificités </b> </h2>
                 <p>
-                    Dans le monde Anglo-Saxon, nous avons recensé 27 formations du niveau Master avec 8 aux États-Unis, 6 au Royaume-Uni, 4 au Canada, 4 en Irlande du Nord, 3 en Australie, 1 en Nouvelle-Zélande et 1 en Inde. Ces formations peuvent varier en fonction de leur département de formation, des compétences enseignées que nous avons regroupées en 7 grandes catégories avec la recherche, les outils, les corpus, la culture, la data, les méthodes et l’éditorialisation.
+                    Dans le monde Anglo-Saxon, nous avons recensé 27 formations du niveau Master avec 8 aux États-Unis, 6 au Royaume-Uni, 4 au Canada, 4 en Irlande du Nord, 3 en Australie, 1 en Nouvelle-Zélande et 1 en Inde. Ces formations peuvent varier en fonction de leur département de formation, des compétences enseignées que nous avons regroupées en 7 grandes catégories comme la recherche, les outils, les corpus, la culture, la data, les méthodes et l’éditorialisation.
                 </p>            
             </div>
 
@@ -100,7 +100,7 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary"><b>Méthodologie </b> </h2>
                 <p>
-                    Ce projet, et conséquemment sa méthodologie de travail, s’est divisé en deux étapes, une première partie avec tous les étudiants du Master et une deuxième en groupe plus restreint. 
+                    Ce projet, et conséquemment sa méthodologie de travail, ont été divisés en deux étapes, une première partie avec tous les étudiants du Master et une deuxième avec un groupe plus restreint. 
                     Lors de la première partie, nous avons cherché à obtenir la base de donnée la plus pertinente possible. Nous avons retravaillé le sujet, son angle d’approche, ainsi que la base de données avec les enseignants, grâce à divers outils. Nous avons aussi établi nos premières idées pour le visuel final du site, ainsi qu’appris d’autres outils pour développer nos compétences dans plusieurs domaines tels que : webdesign, traitement de données, data visualisation, etc. La rédaction des contenus textuels s’est aussi faite avec tous les étudiants, afin que nos réalisations soient cohérentes malgré les possibles différences graphiques.
                     Ensuite, nous nous sommes séparés en groupe afin de réaliser deux sites, chacun ayant sa propre identité visuelle et ses choix d’outils spécifiques, ainsi qu’une méthodologie de travail propre à l’équipe, mais dont les contenus restent les mêmes. 
 
@@ -124,7 +124,7 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary"><b>Les outils </b> </h2>
                 <p>
-                    Nous avons utilisé une multitude d’outils durant la réalisation de ce projet afin d’exploiter au maximum notre base de données. Premièrement, la première version de cette base a été établie sur un Google Spreadsheet partagé entre tous les étudiants. Pour le traitement de certains aspects spécifiques, R à été utilisé, ainsi que Prepost SEO et SEO Rank, respectivement afin d’obtenir l’Alexa et le Moz Rank. Enfin, AirTable et <a href="https://hyperotlet.huma-num.fr/otletosphere/">Opensphère</a>  ont permis de créer la  <a href="https://dev.myllaume.fr/dhsphere/">DHsphère</a>. 
+                    Nous avons utilisé une multitude d’outils durant la réalisation de ce projet afin d’exploiter au maximum notre base de données. La première version de cette base a été établie sur un Google Spreadsheet partagée entre tous les étudiants. Pour le traitement de certains aspects spécifiques, R à été utilisé, ainsi que Prepost SEO et SEO Rank, respectivement afin d’obtenir l’Alexa et le Moz Rank. Enfin, AirTable et <a href="https://hyperotlet.huma-num.fr/otletosphere/">Opensphère</a>  ont permis de créer la  <a href="https://dev.myllaume.fr/dhsphere/">DHsphère</a>. 
                     Dans notre groupe, nous avons aussi utilisé adobe XD pour le maquettage, adobe Illustrator pour les différents visuels, PHP Laravel pour la partie back du site web et les API, VueJs pour la partie front, ChartJS et Chartkick pour les datavisualisations.
 
                 </p>            
@@ -152,8 +152,11 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="me-4 text-reset">
-        <i class="fab fa-twitter"></i>
+      <a href="https://github.com/LeoPaulD/WhiteBookDH/tree/main/public/data/db" class="me-4 text-reset">
+            <i class="fas fa-database"></i>
+      </a>
+      <a href="/data/carnet/whitebook.pdf" class="me-4 text-reset">
+        <i class="fas fa-file-invoice"></i>
       </a>
       <a href="mailto:dnhd2020-2022@googlegroups.com" class="me-4 text-reset">
         <i class="fab fa-google"></i>

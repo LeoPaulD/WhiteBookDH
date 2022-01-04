@@ -14,7 +14,7 @@
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-primary" ><b>En savoir plus sur les masters Humanités Digitales </b> </h2>
                 <p>
-                    Afin de représenter au mieux la base de données qui a servi à élaborer notre études, nous avons utilisé diverses data visualisation grâce au librairies vue-chartikick et vue-chartjs. Vous trouverez donc ci-dessous plusieurs représentations visuelles interactives permettant une compréhension globale des formations en Humanites Digitales dans le monde Anglo-Saxon. Le système utilisé permet une pérennité des visualisations et une mise à jour automatique dès que la base de données est modifiée ou enrichie.
+                    Afin de représenter au mieux la base de données qui a servi à élaborer notre étude, nous avons utilisé diverses data visualisation grâce au librairies vue-chartikick et vue-chartjs. Vous trouverez donc ci-dessous plusieurs représentations visuelles interactives permettant une compréhension globale des formations en Humanites Digitales dans le monde Anglo-Saxon. Le système utilisé permet une pérennité des visualisations et une mise à jour automatique dès que la base de données est modifiée ou enrichie.
                 </p>            
              </div>
     
@@ -32,7 +32,7 @@
                 <h2 class="baskerville text-secondary"><b>HORIZON DES FORMATIONS : </b> </h2>
                 <p>
                     Dans le monde Anglo-Saxon, nous avons recensé 27 formations, dont 8 aux États-Unis, 6 au Royaume-Uni, 4 au Canada, 4 en Irlande du Nord, 3 en Australie, 1 en Nouvelle-Zélande et 1 en Inde.
-                    Dans notre recherche, nous nous sommes restreint au monde Anglo-Saxon afin de pouvoir ensuite comparer ce projet de Livre Blanc à son édition précédente. Nous avons aussi trié afin de n'avoir que des formations de niveau Master ou équivalent dans les différents pays.
+                    Dans notre recherche, nous nous sommes restreints au monde Anglo-Saxon afin de pouvoir ensuite comparer ce projet de Livre Blanc à son édition précédente. Nous avons aussi trié afin de n'avoir que des formations de niveau Master ou équivalent dans les différents pays.
 
                 </p>   
                 
@@ -110,7 +110,7 @@
                 <h2 class="baskerville text-secondary"><b>Les méta-compétences de l'ensemble du corpus de formations : </b> </h2>
                 <p>
                     Les formations peuvent varier en fonction de leur département de formation, des enseignants ou du pays offrant l'enseignement. Nous avons catégorisés les différents enseignements des différentes formations en 7 grandes catégories qui sont : la recherche, les outils, les corpus, la culture, la data, les méthodes et l’éditorialisation.
-                    Puis nous avons fais le total du nombre d'enseignements dans une catégorie, divisé par l'ensemble des enseignements de toutes les catégories. Afin de connaitre le poid de chaque catégorie vis à vis des autres catégories sur l'ensemble du corpus de formations. 
+                    Puis nous avons fait le total du nombre d'enseignements dans une catégorie, divisé par l'ensemble des enseignements de toutes les catégories, afin de connaitre le poid de chaque catégorie vis à vis des autres catégories sur l'ensemble du corpus de formations. 
 
                 </p>            
             </div>
