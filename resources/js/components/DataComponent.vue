@@ -4,11 +4,11 @@
     <div class="d-flex  justify-content-center   flex-wrap scrool" >
     
     
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" id="premices" style="height: 80vh;">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" id="premices" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
-                <img src="/img/illu/data.svg" alt="" srcset="" style="max-height: 350px">
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh;" >
+                <img src="/img/illu/data.svg" alt="" srcset="" style="max-height: 320px">
             </div>
 
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
@@ -23,7 +23,7 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
             
@@ -38,7 +38,7 @@
                 
             </div>
             
-            <div class="mt-5  d-flex align-items-center justify-content-center" >
+            <div class="mt-5  d-flex align-items-center justify-content-center" style="height: 80vh" >
                 <geo-chart class="m" :legend="true" :data="worlds"  xtitle="Nombre de master par pays" :download="true"  colors="#D9B391"></geo-chart>
             </div>
 
@@ -49,7 +49,7 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
             
@@ -63,7 +63,7 @@
                 </p>            
             </div>
 
-             <div class="mt-5 m-2 d-flex align-items-center justify-content-center" >
+             <div class="mt-5 m-2 d-flex align-items-center justify-content-center" style="height: 80vh">
                 <vue-word-cloud :words="[['digital' ,131],['humanities',92],['research',67], ['information', 44], ['history', 32], ['media', 30], ['methods', 30], ['introduction', 29], ['project', 27],['design',25], ['studies',25], ['data', 24], ['social', 21], ['public', 20],['management', 19],['theories',19],['heritage',18], ['theory',18],['analysis',15],['literature',15],['programming',15]]"
           :color="([, weight]) => weight > 10 ? 'primary' : weight > 5 ? 'RoyalBlue' : 'Indigo'"
           font-family="Noto Sans" /> 
@@ -99,18 +99,18 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh" >
                 <AllRadarChart  />
             </div>
 
             <div class=" d-flex flex-column justify-content-center  col-lg-11  " >              
                 <h2 class="baskerville text-secondary"><b>Les méta-compétences de l'ensemble du corpus de formations : </b> </h2>
                 <p>
-                    Nous avons utilisé une multitude d’outils durant la réalisation de ce projet afin d’exploiter au maximum notre base de données. Premièrement, la première version de cette base a été établie sur un Google Spreadsheet partagé entre tous les étudiants. Pour le traitement de certains aspects spécifiques, R à été utilisé, ainsi que Prepost SEO et SEO Rank, respectivement afin d’obtenir l’Alexa et le Moz Rank. Enfin, AirTable et <a href="https://hyperotlet.huma-num.fr/otletosphere/">Opensphère</a>  ont permis de créer la DHsphère. 
-                    Dans notre groupe, nous avons aussi utilisé … [spécifique à chaque groupe, Illustrator, Tableau, Wordpress, etc…]
+                    Les formations peuvent varier en fonction de leur département de formation, des enseignants ou du pays offrant l'enseignement. Nous avons catégorisés les différents enseignements des différentes formations en 7 grandes catégories qui sont : la recherche, les outils, les corpus, la culture, la data, les méthodes et l’éditorialisation.
+                    Puis nous avons fais le total du nombre d'enseignements dans une catégorie, divisé par l'ensemble des enseignements de toutes les catégories. Afin de connaitre le poid de chaque catégorie vis à vis des autres catégories sur l'ensemble du corpus de formations. 
 
                 </p>            
             </div>

@@ -5,7 +5,7 @@
 @section('content')
 <div style="height: 85px;"></div>
 <div class="d-flex  justify-content-center   flex-wrap scrool" >
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
                 <div class=" d-flex flex-column justify-content-center  col-lg-11  " >
@@ -34,8 +34,11 @@
 
             
 
-            <div class="mt-5 d-flex align-items-center">
-                <img src="/img/illu/illu-home.png" alt="" srcset="">
+            <div class=" d-flex align-items-center" style="height: 80vh">
+                
+                    <img src="/img/illu/illu-home.png" alt="" srcset="" style="max-width: 100%">
+                
+                
             </div>
 
 
@@ -45,10 +48,10 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" id="premices" style="height: 80vh;">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" id="premices" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh" >
                 <img src="/img/illu/projet.svg" alt="" srcset="" style="max-height: 350px">
             </div>
 
@@ -66,10 +69,10 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh">
                 <img src="/img/illu/formations.svg" alt="" srcset="" style="max-height: 350px">
             </div>
 
@@ -87,10 +90,10 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh">
                 <img src="/img/illu/methodo.svg" alt="" srcset="" style="max-height: 350px">
             </div>
 
@@ -111,10 +114,10 @@
     <br>
     <hr class="col-8">
     <br>
-    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" style="height: 80vh">
+    <div class="mt-4  overflow-hidden  sm:rounded-lg col-10  d-flex align-center" >
         <div class="grid grid-cols-1 md:grid-cols-2" >
             
-            <div class="mt-5 d-flex align-items-center justify-content-center" >
+            <div class="mt-5 d-flex align-items-center justify-content-center" style="height: 80vh" >
                 <img src="/img/illu/outils.svg" alt="" srcset="" style="max-height: 350px">
             </div>
 
@@ -136,7 +139,7 @@
     <br>
     
 <!-- Footer -->
-<footer class="text-center text-lg-start col-md-9 text-muted">
+<footer class="text-center text-lg-start col-12 text-muted">
   <!-- Section: Social media -->
   <section
     class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -152,7 +155,7 @@
       <a href="" class="me-4 text-reset">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="mailto:dnhd2020-2022@googlegroups.com" class="me-4 text-reset">
         <i class="fab fa-google"></i>
       </a>
       <a href="https://www.linkedin.com/in/l%C3%A9o-paul-dubourg/" class="me-4 text-reset">
@@ -172,21 +175,21 @@
       <!-- Grid row -->
       <div class="row mt-3">
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <img src="img/logo/web-whitebook.png" alt="" style="height: 60px">
-        </div>
+        <a class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4" href="https://www.u-bordeaux-montaigne.fr/fr/formations/offre-de-formation-2022-2026/master-XB/information-communication-et-mediation-des-sciences-SCINFO.9/master-communication-et-editorialisation-digitale-KQQRPEB6.html">
+            <img src="img/logo/DNHD.jpeg" alt="" style="height: 60px">
+        </a>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-4 col-xl-2 mx-auto mb-4">
+        <a class="col-md-2 col-lg-4 col-xl-2 mx-auto mb-4" href="https://www.u-bordeaux-montaigne.fr/fr/index.html">
             <img src="img/logo/ubm.png" alt="" style="height: 60px">
-        </div>
+        </a>
         <!-- Grid column -->
 
         <!-- Grid column -->
-        <div class="col-md-3 col-lg-4 col-xl-2 mx-auto mb-4">
+        <a class="col-md-3 col-lg-4 col-xl-2 mx-auto mb-4" href="https://mica.u-bordeaux-montaigne.fr/">
             <img src="img/logo/mica.png" alt="" style="height: 60px">
-        </div>
+        </a>
         <!-- Grid column -->
 
         
@@ -198,7 +201,7 @@
   <!-- Section: Links  -->
 
   
-  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+  <div class="text-center  ">
     © 2022 :
     <a class="text-reset fw-bold" href="https://www.u-bordeaux-montaigne.fr/fr/index.html">Université Bordeaux-Montaigne</a>
   </div>
