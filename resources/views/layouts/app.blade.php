@@ -3,6 +3,27 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- Primary Meta Tags -->
+    <title>WhiteBookDH - Les masters Humanités Digitales dans le monde Anglo-Saxon</title>
+    <meta name="title" content="WhiteBookDH - Les masters Humanités Digitales dans le monde Anglo-Saxon">
+    <meta name="description" content="L’analyse approfondie des curriculums proposés par les 27 universités permet d’esquisser les contours d’un référentiel de compétences des Humanités digitales spécifiquement anglo-saxonnes.
+    Articulé autour de 7 meta-compétences">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://whitebookdh.leo-paul.fr/">
+    <meta property="og:title" content="WhiteBookDH - Les masters Humanités Digitales dans le monde Anglo-Saxon">
+    <meta property="og:description" content="L’analyse approfondie des curriculums proposés par les 27 universités permet d’esquisser les contours d’un référentiel de compétences des Humanités digitales spécifiquement anglo-saxonnes.
+    Articulé autour de 7 meta-compétences">
+    <meta property="og:image" content="http://whitebookdh.leo-paul.fr/img/illu/illu-home.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="http://whitebookdh.leo-paul.fr/">
+    <meta property="twitter:title" content="WhiteBookDH - Les masters Humanités Digitales dans le monde Anglo-Saxon">
+    <meta property="twitter:description" content="L’analyse approfondie des curriculums proposés par les 27 universités permet d’esquisser les contours d’un référentiel de compétences des Humanités digitales spécifiquement anglo-saxonnes.
+    Articulé autour de 7 meta-compétences">
+    <meta property="twitter:image" content="http://whitebookdh.leo-paul.fr/img/illu/illu-home.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/logo/ico.ico" />
     <title>WhiteBookDH</title>
